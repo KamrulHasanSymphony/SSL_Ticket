@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\SSLTicketGit\\SSL_TicketSystem\\",
+  "WorkspaceRootPath": "D:\\SSLTicketGit\\SSL_Ticket\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|d:\\sslticketgit\\ssl_ticketsystem\\ssl_erp\\areas\\support\\todaytasksummary\\views\\createedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|d:\\sslticketgit\\ssl_ticket\\ssl_erp\\areas\\support\\todaytasksummary\\views\\createedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|solutionrelative:ssl_erp\\areas\\support\\todaytasksummary\\views\\createedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -20,13 +20,13 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "CreateEdit.cshtml",
-              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_TicketSystem\\SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\CreateEdit.cshtml",
+              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\CreateEdit.cshtml",
               "RelativeDocumentMoniker": "SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\CreateEdit.cshtml",
-              "ToolTip": "D:\\SSLTicketGit\\SSL_TicketSystem\\SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\CreateEdit.cshtml",
+              "ToolTip": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\CreateEdit.cshtml",
               "RelativeToolTip": "SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\CreateEdit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-11T05:09:16.957Z",
+              "WhenOpened": "2025-12-11T06:03:54.686Z",
               "EditorCaption": ""
             }
           ]
