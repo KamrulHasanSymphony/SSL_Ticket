@@ -1,0 +1,255 @@
+﻿@model SSL.Ticket.SSL.Ticket.Models.CompanyInfo
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+<style>
+    .kTextBox {
+        width: 100%;
+    }
+
+    .spacer4 {
+        height: 3px;
+    }
+
+    .kLbl {
+        margin-top: 5px;
+    }
+
+    .cmbText {
+        width: 100%;
+    }
+
+    .kDate {
+        width: 95% !important;
+    }
+
+    .required {
+        border-bottom: 2px solid red;
+    }
+</style>
+<div class="container-fluid">
+    @using (Html.BeginForm("CreateEdit", "Company", FormMethod.Post, new { @Id = "frm_Company" }))
+    {
+
+        <p class="" style="">
+
+            @if (Model.Operation == "update")
+            {
+                <button type="button" name="btnName" value="Update" title="Update Data" class="btn btn-warning block btnsave"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Update</button>
+
+            }
+
+            else if (Model.Operation == "add")
+            {
+                <button class="btn btn-success button btnsave sslSave" type="button" id=""><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Save</button>
+
+            }
+
+            <button type="button" style="font-size: 18px;" title="Go To Index" data-url="/Company/Index" onclick="GoTo(this)" id="" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancel</button>
+
+        </p>
+        @Html.HiddenFor(model => model.CompanyID)
+        @Html.HiddenFor(model => model.Operation)
+        <div class="row">
+            <div class="col-md-12">
+                <div id="validation-summary" style="">
+                </div>
+                <div class="card card-primary">
+                    <div class="card-header" id="responseTab">
+                        <h3 class="card-title">Create Company Info</h3>
+                    </div>
+                    <form id="frm_Company" class="">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.CompanyName, new { @class = "pull-right" })
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.CompanyName, new { @class = " kTextbox" })
+                                            </div>
+                                        </div>
+
+                                        <div class="spacer4"></div>
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.CompanyLegalName, new { @class = "pull-right" })
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.CompanyLegalName, new { @class = " kTextbox" })                                     </div>
+                                        </div>                                        
+
+                                        <div class="spacer4"></div>
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.TelephoneNo, new { @class = "pull-right" })
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.TelephoneNo, new { @class = " kTextbox" })
+                                            </div>
+                                        </div>
+                                        <div class="spacer4"></div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.FaxNo, new { @class = "pull-right" })
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.FaxNo, new { @class = " kTextbox" })
+                                            </div>
+                                        </div>
+                                        <div class="spacer4"></div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.Email, new { @class = "pull-right" })
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.Email, new { @class = " kTextbox" })
+                                            </div>
+                                        </div>
+                                        <div class="spacer4"></div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.City, new { @class = "pull-right" })
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.City, new { @class = " kTextbox" })
+                                            </div>
+                                        </div>
+                                        <div class="spacer4"></div>
+
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.Address, new { @class = "pull-right" })
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(model => model.Address, new { @class = "kTextArea" })
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.ZipCode, new { @class = "pull-right" })
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.ZipCode, new { @class = " kTextbox" })
+                                            </div>
+                                        </div>
+                                        <div class="spacer4"></div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.ContactPerson, new { @class = "pull-right" })
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.ContactPerson, new { @class = " kTextbox" })
+                                            </div>
+                                        </div>
+                                        <div class="spacer4"></div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.ContactPersonDesignation, new { @class = "pull-right" })
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.ContactPersonDesignation, new { @class = " kTextbox" })
+                                            </div>
+                                        </div>
+                                        <div class="spacer4"></div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.ContactPersonTelephone, new { @class = "pull-right" })
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.ContactPersonTelephone, new { @class = " kTextbox" })
+                                            </div>
+                                        </div>
+                                        <div class="spacer4"></div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.ContactPersonEmail, new { @class = "pull-right" })
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.ContactPersonEmail, new { @class = " kTextbox" })
+                                            </div>
+                                        </div>
+                                        <div class="spacer4"></div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.Comments, new { @class = "pull-right" })
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(model => model.Comments, new { @class = "kTextArea" })
+                                            </div>
+                                        </div>
+                                        <div class="spacer4"></div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.ActiveStatus, new { @class = "pull-right" })
+
+                                            </div>
+                                            <div class="col-md-9">
+                                                @Html.CheckBoxFor(model => model.ActiveStatus, new { @class = "", style = "margin-right: 5px;" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+@section scripts {
+    <script src="~/javascript/company/company.js"></script>
+    <script src="~/js/app/services/commonservice.js"></script>
+    <script src="/js/app/Services/CompanyInfoService.js"></script>
+    <script src="/js/app/Controllers/CompanyInfoController.js"></script>
+    
+
+    <script>
+        $(document).ready(function () {
+
+            CompanyInfoController.init();
+            window.onload = function () {
+                // $("#cmbStackHolder").val($("#StackHolderUserId").val());
+                // $("#cmbClient").val($("#T_ClientId").val());
+
+                // $("#cmbTktSource").val($("#T_SourceId").val());
+                // $("#cmbTktProducts").val($("#T_ProductId").val());
+                // $("#txtStartDate").val($("#CreateDate").val());
+                // $("#txtEndDate").val($("#DueDate").val());
+                // $("#editor").val($("#Description").val());
+                // $("#cmbTopic").val($("#T_TopicId").val());
+                // $("#cmbRating").val($("#T_RatingId").val());
+                // $("#cmbPriority").val($("#T_PriorityId").val());
+                // $("#cmbStatus").val($("#T_StatusId").val());
+            };
+        });
+
+    </script>
+
+
+}

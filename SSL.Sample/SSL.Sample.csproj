@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="SSL.Sample.Core\Interfaces\Repository\CompanyInfos\**" />
+    <Compile Remove="SSL.Sample.Core\Interfaces\Repository\Company\**" />
+    <Compile Remove="SSL.Sample.Core\Interfaces\Services\Company\**" />
+    <Compile Remove="SSL.Sample.Core\Interfaces\Services\TestService\**" />
+    <Compile Remove="SSL.Sample.DataService\**" />
+    <Compile Remove="SSL.Sample.Models\KendoCommon\**" />
+    <Compile Remove="SSL.Sample.Repository.SqlServer\CompanyInfos\**" />
+    <Compile Remove="SSL.Sample.Repository.SqlServer\Company\**" />
+    <Compile Remove="SSL.Sample.Services\CompanyInfo\**" />
+    <Compile Remove="SSL.Sample.Services\Company\**" />
+    <EmbeddedResource Remove="SSL.Sample.Core\Interfaces\Repository\CompanyInfos\**" />
+    <EmbeddedResource Remove="SSL.Sample.Core\Interfaces\Repository\Company\**" />
+    <EmbeddedResource Remove="SSL.Sample.Core\Interfaces\Services\Company\**" />
+    <EmbeddedResource Remove="SSL.Sample.Core\Interfaces\Services\TestService\**" />
+    <EmbeddedResource Remove="SSL.Sample.DataService\**" />
+    <EmbeddedResource Remove="SSL.Sample.Models\KendoCommon\**" />
+    <EmbeddedResource Remove="SSL.Sample.Repository.SqlServer\CompanyInfos\**" />
+    <EmbeddedResource Remove="SSL.Sample.Repository.SqlServer\Company\**" />
+    <EmbeddedResource Remove="SSL.Sample.Services\CompanyInfo\**" />
+    <EmbeddedResource Remove="SSL.Sample.Services\Company\**" />
+    <None Remove="SSL.Sample.Core\Interfaces\Repository\CompanyInfos\**" />
+    <None Remove="SSL.Sample.Core\Interfaces\Repository\Company\**" />
+    <None Remove="SSL.Sample.Core\Interfaces\Services\Company\**" />
+    <None Remove="SSL.Sample.Core\Interfaces\Services\TestService\**" />
+    <None Remove="SSL.Sample.DataService\**" />
+    <None Remove="SSL.Sample.Models\KendoCommon\**" />
+    <None Remove="SSL.Sample.Repository.SqlServer\CompanyInfos\**" />
+    <None Remove="SSL.Sample.Repository.SqlServer\Company\**" />
+    <None Remove="SSL.Sample.Services\CompanyInfo\**" />
+    <None Remove="SSL.Sample.Services\Company\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="SSL.Sample.Core\Interfaces\Services\Class1.cs" />
+    <Compile Remove="SSL.Sample.Core\Interfaces\Services\Support\ISupportService.cs" />
+    <Compile Remove="SSL.Sample.Models\IndexModel.cs" />
+    <Compile Remove="SSL.Sample.Models\MessageModel.cs" />
+    <Compile Remove="SSL.Sample.Models\PeramModel.cs" />
+    <Compile Remove="SSL.Sample.Models\ResultModel.cs" />
+    <Compile Remove="SSL.Sample.Models\Status.cs" />
+    <Compile Remove="SSL.Sample.Services\Support\SupportService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0-preview5.24024.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SSL.CS\SSL.CS.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Data.SqlClient">
+      <HintPath>C:\Users\Rakib\.nuget\packages\microsoft.data.sqlclient\2.1.4\lib\netstandard2.1\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:\Users\Rakib\.nuget\packages\newtonsoft.json\13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="SSL.Sample.Core\Interfaces\Services\Support\" />
+    <Folder Include="SSL.Sample.Services\Support\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,321 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SSL_ERP
+build_property.RootNamespace = SSL_ERP
+build_property.ProjectDir = D:\SSLTicketGit\SSL_Ticket\SSL_ERP\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\SSLTicketGit\SSL_Ticket\SSL_ERP
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 6.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/MenuAuthorizations/Views/Role.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudUF1dGhvcml6YXRpb25zXFZpZXdzXFJvbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/MenuAuthorizations/Views/RoleCreateEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudUF1dGhvcml6YXRpb25zXFZpZXdzXFJvbGVDcmVhdGVFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXFByb2R1Y3RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/Purchase/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXFB1cmNoYXNlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/Purchase/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXFB1cmNoYXNlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/Purchase/VendorModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXFB1cmNoYXNlXFZlbmRvck1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/Purchase/VendorSearchModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXFB1cmNoYXNlXFZlbmRvclNlYXJjaE1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/SampleHome/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXFNhbXBsZUhvbWVcRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/SampleHome/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXFNhbXBsZUhvbWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/SampleView/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXFNhbXBsZVZpZXdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/SampleView/TestDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXFNhbXBsZVZpZXdcVGVzdERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/SampleView/TestSummary.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXFNhbXBsZVZpZXdcVGVzdFN1bW1hcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/Sample/Test.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXFNhbXBsZVxUZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/Vendor/VendorIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXFZlbmRvclxWZW5kb3JJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Sample/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU2FtcGxlXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Clients/Views/CreateEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxDbGllbnRzXFZpZXdzXENyZWF0ZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Clients/Views/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxDbGllbnRzXFZpZXdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Company/Views/CreateEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxDb21wYW55XFZpZXdzXENyZWF0ZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Company/Views/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxDb21wYW55XFZpZXdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Home/Views/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxIb21lXFZpZXdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Product/Views/CreateEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxQcm9kdWN0XFZpZXdzXENyZWF0ZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Product/Views/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxQcm9kdWN0XFZpZXdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tasks/Views/AllPendingTask.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUYXNrc1xWaWV3c1xBbGxQZW5kaW5nVGFzay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tasks/Views/AssigneeModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUYXNrc1xWaWV3c1xBc3NpZ25lZU1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tasks/Views/CollaborationModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUYXNrc1xWaWV3c1xDb2xsYWJvcmF0aW9uTW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tasks/Views/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUYXNrc1xWaWV3c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tasks/Views/EnternalModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUYXNrc1xWaWV3c1xFbnRlcm5hbE1vZGFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tasks/Views/PendingTask.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUYXNrc1xWaWV3c1xQZW5kaW5nVGFzay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tasks/Views/StartedTask.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUYXNrc1xWaWV3c1xTdGFydGVkVGFzay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tasks/Views/TaskIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUYXNrc1xWaWV3c1xUYXNrSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tasks/Views/TimeModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUYXNrc1xWaWV3c1xUaW1lTW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tasks/Views/TodayTask.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUYXNrc1xWaWV3c1xUb2RheVRhc2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tickets/Views/Tickets/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUaWNrZXRzXFZpZXdzXFRpY2tldHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tickets/Views/Tickets/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUaWNrZXRzXFZpZXdzXFRpY2tldHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Tickets/Views/Tickets/TktEnternalModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUaWNrZXRzXFZpZXdzXFRpY2tldHNcVGt0RW50ZXJuYWxNb2RhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/TodayTaskSummary/Views/CreateEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUb2RheVRhc2tTdW1tYXJ5XFZpZXdzXENyZWF0ZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/TodayTaskSummary/Views/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUb2RheVRhc2tTdW1tYXJ5XFZpZXdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Topics/Views/CreateEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUb3BpY3NcVmlld3NcQ3JlYXRlRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/Topics/Views/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxUb3BpY3NcVmlld3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/UserProfile/Views/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxVc2VyUHJvZmlsZVxWaWV3c1xDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/UserProfile/Views/CreateEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxVc2VyUHJvZmlsZVxWaWV3c1xDcmVhdGVFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/UserProfile/Views/EditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxVc2VyUHJvZmlsZVxWaWV3c1xFZGl0UHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/UserProfile/Views/ForgetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxVc2VyUHJvZmlsZVxWaWV3c1xGb3JnZXRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/UserProfile/Views/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxVc2VyUHJvZmlsZVxWaWV3c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/UserProfile/Views/LoginCreateEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxVc2VyUHJvZmlsZVxWaWV3c1xMb2dpbkNyZWF0ZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Support/UserProfile/Views/Varification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcG9ydFxVc2VyUHJvZmlsZVxWaWV3c1xWYXJpZmljYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Tools/Views/Support/create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVG9vbHNcVmlld3NcU3VwcG9ydFxjcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Tools/Views/Support/Create__.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVG9vbHNcVmlld3NcU3VwcG9ydFxDcmVhdGVfXy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Tools/Views/Support/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVG9vbHNcVmlld3NcU3VwcG9ydFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Tools/Views/Tickets/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVG9vbHNcVmlld3NcVGlja2V0c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Areas/Tools/Views/Tickets/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVG9vbHNcVmlld3NcVGlja2V0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Test/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VGVzdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Test/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = VGVzdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Home/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Home/Index1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleDEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Home/KGrid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxLR3JpZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Home/RegistrationWeb.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3RyYXRpb25XZWIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Home/View.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Login/IndexOld.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXhPbGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Report/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Shared/Components/Navigation/_leftSideBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmF2aWdhdGlvblxfbGVmdFNpZGVCYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Shared/_Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-6hajifbqkr
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Shared/_LayoutAltair.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBbHRhaXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-r2z0g1k3tr
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Shared/_LayoutNew.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXROZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-smxvf0ltec
+
+[D:/SSLTicketGit/SSL_Ticket/SSL_ERP/Views/Shared/_LoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-xyosnsi9qe

@@ -1,0 +1,105 @@
+﻿@model SSL.Ticket.SSL.Ticket.Models.Tickets.T_ProductsVM
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+<style>
+    .kTextBox {
+        width: 100%;
+    }
+
+    .spacer4 {
+        height: 3px;
+    }
+
+    .kLbl {
+        margin-top: 5px;
+    }
+
+    .required {
+        border-bottom: 2px solid red;
+    }
+</style>
+<div class="container-fluid">
+    @using (Html.BeginForm("CreateEdit", "Product", FormMethod.Post, new { @Id = "frm_Product" }))
+    {
+
+        <p class="" style="">
+
+            @if (Model.Operation == "update")
+            {
+                <button type="button" name="btnName" value="Update" title="Update Data" class="btn btn-warning block btnsave"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Update</button>
+
+            }
+
+            else if (Model.Operation == "add")
+            {
+                <button class="btn btn-success button btnsave sslSave" type="button" id=""><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Save</button>
+
+            }
+
+            <button type="button" style="font-size: 18px;" title="Go To Index" data-url="/Product/Index" onclick="GoTo(this)" id="" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancel</button>
+
+        </p>
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Name)
+        @Html.HiddenFor(model => model.IsActive)
+        @Html.HiddenFor(model => model.Operation)
+        <div class="row">
+            <div class="col-md-12">
+                <div id="validation-summary" style="">
+                </div>
+                <div class="card card-primary">
+                    <div class="card-header" id="responseTab">
+                        <h3 class="card-title">Create Topic Info</h3>
+                    </div>
+                    <form id="frm_Topics" class="">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                @Html.LabelFor(model => model.Name, new { @class = "" })
+                                                @Html.TextBoxFor(model => model.Name, new { @class = " kTextbox",@placeholder = "Product Name" })
+                                                @Html.ValidationMessageFor(model => model.Name)
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                @Html.LabelFor(model => model.IsActive, new { @class = "", style = "margin-top:6%;" })
+                                                @Html.CheckBoxFor(model => model.IsActive, new { @class = "" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+@section scripts {
+    <script src="~/javascript/product/product.js"></script>
+    <script src="~/js/app/services/commonservice.js"></script>
+    <script src="~/js/app/services/product/productinfoservice.js"></script>
+    <script src="~/js/app/controllers/support/productinfocontroller.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            ProductInfoController.init();
+
+        });
+
+    </script>
+
+
+}

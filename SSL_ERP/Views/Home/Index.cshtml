@@ -1,0 +1,143 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<!-- Buttons -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Activity Schedule</h3>
+                </div>
+                <div id="example">
+                    <div id="scheduler"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script id="event-template" type="text/x-kendo-template">
+    <div class="k-event-template">
+        #= title #
+    </div>
+</script>
+
+<script id="custom-editor-template" type="text/x-kendo-template">
+
+    <div class="k-edit-label">
+        <label for="title">Title</label>
+    </div>
+    <div data-container-for="title" class="k-edit-field">
+        <input type="text" class="k-input k-textbox" name="title" data-bind="value:title" disabled>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="start">Start</label>
+    </div>
+    <div data-container-for="start" class="k-edit-field">
+        <input type="text" name="start" data-bind="value:start" data-role="datetimepicker" disabled>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="end">End</label>
+    </div>
+    <div data-container-for="end" class="k-edit-field">
+        <input type="text" name="end" data-bind="value:end" data-role="datetimepicker" disabled>
+    </div>
+    <div class="k-edit-label">
+        <label for="description">Description</label>
+    </div>
+    <div data-container-for="description" class="k-edit-field">
+        <textarea class="k-textbox" name="description" data-bind="value:description" disabled style="height: 37px; width:100%;"></textarea>
+    </div>
+    <!-- Button container -->
+    <div class="k-edit-buttons k-state-default">
+        <button type="button" class="btn btn-warning block btnDetails"><i class="fas fa-th-list"></i>&nbsp;Details</button>
+        <button type="button" class="btn btn-danger btnCancle"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancle</button>
+
+        <!-- The 'Cancel' button will automatically be included by Kendo -->
+    </div>    
+</script>
+
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date("2024/8/13"),
+        startTime: new Date("2024/8/13 07:00 AM"),
+        height: 600,
+        views: [
+            "day",
+            { type: "month", selected: true },
+            "week",
+            "month",
+            "agenda",
+            { type: "timeline", eventHeight: 50 }
+        ],
+        timezone: "Etc/UTC",
+        dataSource: {
+            batch: true,
+            transport: {
+                read: {
+                    url: "/Task/GetSchedulerData",
+                    dataType: "json"
+                }
+            },
+            schema: {
+                model: {
+                    id: "id",
+                    fields: {
+                        id: { type: "number" },
+                        t_TicketId: { type: "number" },
+                        title: { type: "string", from: "title" },
+                        start: { field: "start", type: "date" },
+                        end: { field: "end", type: "date" },
+                        description: { type: "string" },
+                        workingStatus: { field: "workingStatus" }
+                    }
+                }
+            }
+        },
+        resources: [
+            {
+                field: "workingStatus",
+                dataSource: [
+                    { text: "Start", value: "S", color: "green" },
+                    { text: "Pause", value: "P", color: "yellow" },
+                    { text: "Complete", value: "C", color: "Blue" },
+                    { text: "NotStart", value: "NS", color: "Brown" }
+                ]
+            }
+        ],
+        
+        editable: {
+            template: $("#custom-editor-template").html(),
+            confirmation: false // Disable confirmation prompts
+        },
+        edit: function (e) {
+            // Hide the 'Save' button
+            e.container.find(".k-scheduler-update").hide();
+            // Hide the 'Delete' button
+            e.container.find(".k-scheduler-delete").hide();
+            e.container.find(".k-scheduler-cancel").hide();
+            e.container.find(".btnCancle").click(function () {
+                $(e.container).data("kendoWindow").close();
+            });
+
+            e.container.find(".btnDetails").click(function () {
+                var id = e.event.id;
+                var ticketId = e.event.t_TicketId;
+                var url = "/Task/Edit/" + id + "/" + ticketId;
+
+                // Redirect to the constructed URL
+                window.location.href = url;
+                //alert("Details button clicked! ID: " + ticketId);
+            });
+        },
+        dataBound: function (e) {
+            console.log(this.dataSource.view()); // Logs the current view of data
+        }
+    });
+</script>

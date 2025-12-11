@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Task Info";
+    Layout = "_Layout";
+}
+
+<script src="~/javascript/task/tasksettings.js"></script>
+<!--Buttons-->
+
+<div class="container-fluid">
+    
+    <div style="display: none" id="formAppend"></div>
+@*     <button type="submit" title="Add New Ticket" data-url="/Task/Create" onclick="GoTo(this)" id="" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;New</button>
+ *@    <button type="button" id="btnIndex" title="Go To Index" data-url="/Task/Index" onclick="GoTo(this)" id="" class="btn btn-primary" style="display: none"><i class="fa fa-th" aria-hidden="true"></i>&nbsp;Index</button>
+</div>
+
+@* <div class="sapcer4"></div> *@
+
+<div class="container-fluid" id="divGrid">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Task Informations</h3>
+        </div>
+        <div id="kTaskGrid">
+        </div>
+    </div>
+</div>
+<section>
+    <div id="partialContainer"> </div>
+</section>
+

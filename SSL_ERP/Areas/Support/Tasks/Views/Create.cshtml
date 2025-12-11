@@ -1,0 +1,536 @@
+﻿@using SSL.Ticket.SSL.Ticket.Models
+@model SSL.Ticket.SSL.Ticket.Models.Tasks.T_TasksVM
+@{
+   // ViewBag.Title = "Task Info";
+    Layout = "_Layout";
+}
+
+
+<style>
+    .kTextBox {
+        width: 100%;
+    }
+
+    .spacer4 {
+        height: 3px;
+    }
+
+    .kLbl {
+        margin-top: 5px;
+    }
+
+    .cmbText {
+        width: 100%;
+    }
+
+    .kDate {
+        width: 100% !important;
+    }
+
+    .k-autocomplete, .k-dropdown-wrap.k-state-default, .k-numeric-wrap.k-state-default, .k-picker-wrap.k-state-default {
+        width: initial !important
+    }
+
+    .required {
+        border-bottom: 2px solid red;
+    }
+
+    .filestyle {
+        border: 2px solid skyblue;
+        border-radius: 5px;
+        width: 100%;
+        height: 33px;
+    }
+</style>
+
+<div class="container-fluid" id="divForm">
+
+    @using (Html.BeginForm("CreateEdit", "Task", FormMethod.Post, new { @Id = "frm_Task" }))
+    {
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Operation)
+        @Html.HiddenFor(model => model.T_TicketId)
+        @Html.HiddenFor(model => model.T_SourceId)
+        @Html.HiddenFor(model => model.T_TopicId)
+        @Html.HiddenFor(model => model.T_RatingId)
+        @Html.HiddenFor(model => model.T_PriorityId)
+        @Html.HiddenFor(model => model.T_StatusId)
+        @Html.HiddenFor(model => model.StartDate)
+        @Html.HiddenFor(model => model.StartTime)
+        @Html.HiddenFor(model => model.Description)
+        @Html.HiddenFor(model => model.ProgressInPercent)
+        @Html.HiddenFor(model => model.DependentTaskId)
+        @Html.HiddenFor(model => model.RequiredTime)
+        @Html.HiddenFor(model => model.DepartmentId)
+        @Html.HiddenFor(model => model.TaskTypeId)
+        @Html.HiddenFor(model => model.WorkingStatus)
+
+
+        <div class="container-fluid">
+            <p @* class="text-center" *@>
+
+                @if (Model.Operation == "update")
+                {
+                    <button type="button" name="btnName" value="Update" title="Update Data" class="btn btn-warning block btnSave"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Update</button>                    
+                }
+                else if (Model.Operation == "add")
+                {
+                    <button class="btn btn-success button btnSave" type="button" id=""><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Save</button>
+                }
+
+                <button type="button" style="font-size: 18px;" title="Go To Index" id="btnCancle" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancel</button>
+                <button type="button" title="Add New Task" data-url="/Task/Create?ticketId= @Model.T_TicketId" onclick="GoTo(this)" id="" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;New</button>
+
+            </p>
+            <div class="row">
+                <div class="col-md-5">
+                    <div id="validation-summary">
+                    </div>
+                    <div class="card card-primary">
+                        <div class="card-header" id="usrcollaborationTab">
+                            <h3 class="card-title">Task</h3>
+                        </div>
+
+                        <form id="UserTktForm" class="k-form">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.Code, new { @class = "pull-right" })
+
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(m => m.Code, new { @class = "kTextbox", disabled = "disabled", @placeholder = "Ticket Code" })
+                                        </div>
+                                    </div>
+                                    <div class="spacer4"></div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.Title, new { @class = "pull-right" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(m => m.Title, new { @class = "kTextbox", @placeholder = "Ticket Title" })
+                                            <span id="titleError" class="text-danger" style="display:none;"></span>
+
+                                        </div>
+@*                                         @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+ *@
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.T_TicketId, new { @class = "pull-right" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(m => m.TicketCode, new { @class = "kTextbox", disabled = "disabled", @placeholder = "Ticket Code" })
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.T_SourceId, new { @class = "pull-right" })
+
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.T_SourceId, new { id = "cmbSource", @class = "KDropDown", @style = "width: 100%;", @placeholder = "--Select Source--" })
+
+                                            @* <input id="cmbSource" class="KDropDown" placeholder="--Select Source--" validationmessage="*" /> *@
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.T_SourceId, "", new { @class = "text-danger" })
+
+                                    </div>
+                                    <div class="spacer4"></div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.T_TopicId, new { @class = "pull-right" })
+
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.T_TopicId, new { id = "cmbTopic", @class = "KDropDown", @style = "width: 100%;", @placeholder = "--Select Topic--" })
+
+                                            @* <input id="cmbTopic" class="KDropDown" placeholder="--Select Topic--" validationmessage="*" /> *@
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.T_TopicId)
+
+                                    </div>
+                                    <div class="spacer4"></div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.T_PriorityId, new { @class = "pull-right" })
+
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.T_PriorityId, new { id = "cmbPriority", @class = "KDropDown", @style = "width: 100%;", @placeholder = "--Select Priority--" })
+
+                                            @* <input id="cmbPriority" class="KDropDown" placeholder="--Select Priority--" validationmessage="*" /> *@
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.T_PriorityId)
+
+                                    </div>   
+                                    <div class="spacer4"></div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.DepartmentId, new { @class = "pull-right" })
+
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.DepartmentId, new { id = "cmbDepartment", @class = "KDropDown", @style = "width: 100%;", @placeholder = "--Select Department--" })
+
+                                            @* <input id="cmbDepartment" class="KDropDown" placeholder="--Select Department--" validationmessage="*" /> *@
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.DepartmentId)
+
+                                    </div>     
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-primary">
+                        <div class="card-header" id="infoOptionTab">
+                            <h3 class="card-title">Task Info and Options</h3>
+                        </div>
+                        <form id="tktInfoOptionForm" class="k-form">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.T_StatusId, new { @class = "pull-right" })
+
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.T_StatusId, new { id = "cmbStatus", @class = "KDropDown", @style = "width: 100%;", @placeholder = "--Select Status--" })
+
+                                            @* <input id="cmbStatus" class="KDropDown" placeholder="--Select Status--" validationmessage="*" /> *@
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.T_StatusId)
+
+                                    </div>
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.ProgressInPercent, new { @class = "pull-right" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.ProgressInPercent, new { id = "txtPercent", @class = "kTextbox", @placeholder = "--Percent--" })
+
+                                            @* <input id="txtPercent" class="kTextbox" placeholder="Percent" validationmessage="*" /> *@
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.StartDate, new { @class = "pull-right" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.StartDate, new { @id = "txtStartDate", @placeholder = "day.month.year hours:minutes", @class = "kDate" })
+
+                                            @* <input id="txtStartDate" placeholder="day.month.year" class="kDate" type="text" placeholder="Start Date" name="txtStartDate" validationmessage="*" /> *@
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.StartDate)
+
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.StartTime, new { @class = "pull-right" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.StartTime, new { @id = "txtStartTime", @placeholder = "hours:minutes", @class = "kDate" })
+                                            <span id="startTimeError" class="text-danger" style="display:none;"></span>
+                                            @* <input id="txtStartTime" placeholder="hours:minutes" class="kDate" type="text" placeholder="Start Time" name="StartTime" validationmessage="*" /> *@
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.StartTime)
+
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.RequiredTime, new { @class = "pull-right" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.RequiredTime, new { @id = "txtRequiredTime", @placeholder = "Required Time", @class = "kTextbox" })
+                                            @* <input id="txtRequiredTime" class="kTextbox" placeholder="Required Time" validationmessage="*" />                                           *@
+                                        </div>
+                                    </div>
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.TaskTypeId, new { @class = "pull-right" })
+
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.TaskTypeId, new { id = "cmbTaskType", @class = "KDropDown", @style = "width: 100%;", @placeholder = "--Select Task Type--" })
+                                            <span id="taskTypeError" class="text-danger" style="display:none;"></span>
+                                            @* <input id="cmbTaskType" class="KDropDown" placeholder="--Select Task Type--" validationmessage="*" /> *@
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card card-primary">
+                        <div class="card-header" id="assigneeTab">
+                            <h3 class="card-title">Assignee</h3>
+                        </div>
+                        <div class="sapcer4"></div>
+                        <div id="assignee">
+                            <div>
+                                <button type="button" title="Add Assignee" id="btnNewAssign" style="margin-left:1%;" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;</button>
+                            </div>
+                            <div class="sapcer4"></div>
+                            <div id="kAssignGrid">
+                            </div>
+                            <section class="content" style="display:none" id="divAssigneModal">
+                                @Html.Partial("~/Areas/Support/Tasks/Views/AssigneeModal.cshtml")
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card card-primary">
+                        <div class="card-header" id="responseTab">
+                            <h3 class="card-title">Description</h3>
+                        </div>
+                        <div class="sapcer4"></div>
+                        <form id="UserTktResponseForm" class="hidden">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(model => model.Description, new { @class = "pull-left" })
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12" id="example">
+                                        <div class="demo-section wide">
+                                            <div>
+                                                @Html.TextAreaFor(model => model.Description, new { @id = "editor", @class = "", @style = "width: 100%;height:300px", @placeholder = "--Select Discription--" })
+
+                                                @* <textarea id="editor" rows="10" cols="30" style="width:100%; height:300px" aria-label="editor"></textarea> *@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-primary">
+                        <div class="card-header" id="filesTab">
+                            <h3 class="card-title">Files</h3>
+                        </div>
+                        <div class="sapcer4"></div>
+                        <form id="fileForm" class="hidden">
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="files">Files</label>
+                                        <input type="file"  accept=".jpg,.jpeg, .png,.pdf, .xls, .xlsx,.docx" id="fileToUpload" name="Attachments" multiple="multiple" />
+
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <ul class="list-group fileGroup">
+
+                                        @foreach (AuditIssueAttachments item in Model.AttachmentsList)
+                                        {
+                                            <li class="list-group-item" id="file-@item.Id">
+                                                <span>
+                                                    @item.DisplayName
+                                                </span>
+
+                                                <a target="_blank" href="/Task/DownloadFile?filePath=@item.FileName" class=" ml-2 btn btn-primary btn-sm float-right ml-2">Download</a>
+                                                
+                                                @* <button onclick="TaskController.DeleteFile('@item.Id' ,'@item.FileName')" class=" ml-2 btn btn-danger btn-sm float-right" type="button">Delete</button> *@
+                                                @* <button href='/Task/DeleteFile?fileName=' + fileName + '&Id=' + id; class=" ml-2 btn btn-danger btn-sm float-right" type="button">Delete</button> *@
+
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    }
+
+    <div class="sapcer4"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <div class="card-header" id="timeTab">
+                        <h3 class="card-title">Task Time</h3>
+                    </div>
+                    <div class="sapcer4"></div>
+                    <div id="taskTime" class="hidden">
+                        <div class="">
+                            <button type="button" name="btnStart" id="btnStart" title="Start" class="btn btn-primary" style="margin-left:2px;"><i class="fa fa-play-circle" aria-hidden="true"></i>&nbsp;Start</button>
+                        </div>
+                        <div class="sapcer4"></div>
+                        <input type="hidden" id="hdnTaskTimeId" value="0" />
+                        <div id="kTimeGrid">
+                        </div>
+                        <section class="content" style="display:none" id="divTimeModal">
+                            @Html.Partial("~/Areas/Support/Tasks/Views/TimeModal.cshtml")
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-header" id="enternalTab">
+                        <h3 class="card-title">Enternal Notes</h3>
+                    </div>
+                    <div class="sapcer4"></div>
+                    <div id="enternlaNotes" class="hidden">
+                        <div>
+                            <button title="Add Enternal Notes" id="btnNewEnt" style="margin-left:1%;" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;</button>
+                        </div>
+                        <div class="sapcer4"></div>
+                        <div id="kENotesGrid">
+                        </div>
+                        <section class="content" style="display:none" id="divEnternalModal">
+                            @Html.Partial("~/Areas/Support/Tasks/Views/EnternalModal.cshtml")
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-header" id="collaborationTab">
+                        <h3 class="card-title">Collaborations</h3>
+                    </div>
+                    <div class="sapcer4"></div>
+                    <div id="collaborations" class="hidden">
+                        <div>
+                            <button title="Add Collaborations" id="btnNewColla" style="margin-left:1%;" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;</button>
+                        </div>
+                        <div class="sapcer4"></div>
+                        <div id="kCollabGrid">
+                        </div>
+                        <section class="" style="display:none" id="divCollaborationModal">
+                            @Html.Partial("~/Areas/Support/Tasks/Views/CollaborationModal.cshtml")
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script src="~/javascript/task/tasksettings.js"></script>
+    <script src="~/js/app/services/commonservice.js"></script>
+    <script src="~/js/app/services/task/taskservice.js"></script>
+    <script src="~/js/app/controllers/task/taskcontroller.js"></script>
+
+    <script>
+        function deleteFile(id, filePath) {
+            const url = '/Task/DeleteFile'; // Adjust the URL if the controller route is different
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ filePath: filePath, id: id }),
+                success: function (response) {
+                    if (response.status === 'Success') {
+                        alert('File deleted successfully!');
+                        // Optionally, remove the file from the UI
+                    } else {
+                        alert(response.message || 'File could not be deleted.');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                    alert('An error occurred while trying to delete the file.');
+                }
+            });
+        }
+    </script>
+    <script>
+
+        $(document).ready(function () {
+
+           
+            TaskController.init();
+        });
+        // window.onload = function () {
+
+            // $("#cmbTicket").val($("#T_TicketId").val());
+            // $("#cmbSource").val($("#T_SourceId").val());
+            // $("#cmbTopic").val($("#T_TopicId").val());
+            // $("#cmbRating").val($("#T_RatingId").val());
+            // $("#cmbPriority").val($("#T_PriorityId").val());
+            // $("#cmbStatus").val($("#T_StatusId").val());            
+            // $("#editor").val($("#Description").val());
+            // $("#txtStartDate").val($("#StartDate").val());
+            // $("#txtStartTime").val($("#StartTime").val());
+            // $("#txtPercent").val($("#ProgressInPercent").val());
+            // $("#txtRequiredTime").val($("#RequiredTime").val());
+            // $("#cmbDepartment").val($("#DepartmentId").val());
+            // $("#cmbTaskType").val($("#TaskTypeId").val());
+
+            // setTimeout(function () {
+            //     var taskId = $("#Id").val();
+            //     // var grid = $("#kENotesGrid").data("kendoGrid");
+            //     // grid.dataSource.data([]);
+
+            //     var newDataSource = TaskSummaryManager.GenerateEnternalNoteByTaskId(taskId);
+            //     var grid = $("#kENotesGrid").data("kendoGrid");
+            //     grid.dataSource.data([]);
+            //     grid.setDataSource(newDataSource);
+
+            //     var clbDataSource = TaskSummaryManager.GetCollaborationByTaskId(taskId);
+            //     var gridCLB = $("#kCollabGrid").data("kendoGrid");
+            //     gridCLB.dataSource.data([]);
+            //     gridCLB.setDataSource(clbDataSource);
+
+
+
+            // }
+            // , 500);
+
+
+
+        //};
+
+    </script>
+
+}
+

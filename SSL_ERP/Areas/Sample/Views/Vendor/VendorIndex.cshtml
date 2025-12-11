@@ -1,0 +1,416 @@
+﻿
+@using SSL.Sample.SSL.Sample.Models;
+@model SSL.Sample.SSL.Sample.Models.AVendorVM
+
+@{
+    Layout = "_Layout";
+}
+<div class="sapcer4"></div>
+<div>
+    <div style="display: none" id="formAppend"></div>
+    <button type="submit" title="Add Vendor Group" id="btnNew" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;New</button>
+    <button type="button" id="btnIndex" class="btn btn-primary" style="display: none"><i class="fa fa-th" aria-hidden="true"></i>&nbsp;Index</button>
+</div>
+<div class="sapcer4"></div>
+<div class="card card-primary" id="divVendorGrid">
+    <div class="card-header">
+        <h3 class="card-title">Vendor Info</h3>
+    </div>
+    <div id="vendorGrid">
+    </div>
+</div>
+<section class="content displayNone" id="divModal">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div id="validation-summary" style="margin-top:.5%;">
+                </div>
+                <!-- general form elements -->
+                <div class="card card-primary" style="width:97%;">
+                    <form id="vendorForm" class="k-form">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="hidden" id="hdnVendorId" value="0" />
+                                @Html.LabelFor(model => model.VendorCode)
+                                <input type="text" name="Vendor Code" required class="kTextbox required clsName" id="VendorCode" placeholder="Code" />
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorName)
+                                <input type="text" name="Vendor Name" required class="kTextbox required clsType" id="VendorName" placeholder="Name" />
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorAddress)
+                                <textarea class="clsDescription" id="VendorAddress"></textarea>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.VendorEmail)
+                                <input type="email" name="Email" class="kTextbox clsEmail required" id="VendorEmail" placeholder="e.g. myname@example.net" required data-email-msg="Email format is not valid" />
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.BINCertificate)
+                                <input type="file" id="BINCertificate" name="file" onchange="uploadFile()">
+                                <br>
+                                <span id="message"></span>                                   
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <button title="Add Vendor" id="btnSaveVendor" class="btn btn-success"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Save</button>
+                            <button title="Add Vendor" id="btnUpdate" class="btn btn-success displayNone"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Update</button>
+                            <button type="button" id="cancelButton" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+
+    $(document).ready(function () {        
+        //Kendo Grid
+        var vendorGridDataSource = new kendo.data.DataSource({
+            type: "json",
+            serverPaging: true,
+            serverSorting: true,
+            serverFiltering: true,
+            allowUnsort: true,
+            autoSync: true,
+            pageSize: 10,
+            transport: {
+                read: {
+                    url: "/Purchase/GetAllVendorData",
+                    type: "POST",
+                    dataType: "json",
+                    cache: false
+                },
+                parameterMap: function (options) {
+                    return options;
+                }
+            },
+            batch: true,
+            schema: {
+                data: "items",
+                total: "totalCount",
+                model: {
+                    id: "Id",
+                    fields: {
+                    }
+                }
+            }
+        });
+        $("#vendorGrid").kendoGrid({
+            dataSource: vendorGridDataSource,
+            pageable: {
+                refresh: true,
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true,
+                pageSizes: [10, 20, 50,"all"]
+            },
+            filterable: {
+                extra: true,
+                operators: {
+                    string: {
+                        startswith: "Starts with",
+                        endswith: "Ends with",
+                        contains: "Contains",
+                        doesnotcontain: "Does not contain",
+                        eq: "Is equal to",
+                        neq: "Is not equal to",
+                        gt: "Is greater then",
+                        lt: "Is less then"
+                    }
+                }
+            },
+            scrollable: false,
+            sortable: true,
+            persistSelection: true,
+            resizable: true,
+            reorderable: true,
+            groupable: true,
+            selectable: "multiple",
+            toolbar: ["excel", "pdf", "search"],
+            search: {
+                fields: ["vendorCode", "vendorName"]
+            },
+            columns: [
+                {
+                    command: [{
+                        name: "edit", text: "", iconClass: "k-icon k-i-edit", className: "md-btn md-btn-flat md-btn-flat-primary", click: ClickEventForEditButton
+                    }], title: "&nbsp;", width: 1
+                },
+                {
+                    field: "vendorId", title: "ID", width: 150, hidden: true, sortable: true
+                },
+                {
+                    field: "vendorCode", title: "Code", sortable: true, width: 150
+                },
+                {
+                    field: "vendorName", title: "Vendor", sortable: true, width: 200
+                },
+                {
+                    field: "vendorAddress", title: "Address", sortable: true, width: 200
+                },
+                {
+                    field: "vendorEmail", title: "Email", sortable: true, width: 150,
+                    template: function (dataItem) {
+                        return dataItem.vendorEmail !== null ? dataItem.vendorEmail : "N/A";
+                    }
+                },
+                {
+                    field: "binCertificate", title: "Bin Certificate", sortable: true, width: 150
+                }
+
+            ],
+            editable: false,
+            selectable: "row",
+            navigatable: true,
+            columnMenu: true
+        });
+
+        $("#divModal").kendoWindow({
+            visible: false, // Initially hidden
+            modal: true, // Make it modal
+            width: "50%", // Adjust width as needed
+            title: "Vendor Information"
+        });
+
+        // Click event handler for the New button
+        $("#btnNew").click(function () {
+            ClearForm();
+            $("#divModal").data("kendoWindow").center().open();
+            $("#btnSaveVendor").show();
+            $("#btnUpdate").hide();
+        });        
+
+        //Kendo Text Area
+        $("#VendorAddress").kendoTextArea({
+            rows: 4,
+            maxLength: 200,
+            placeholder: "Address..."
+        });
+
+        //Kendo Text-Box
+        $(".kTextbox").each(function () {
+            $(this).addClass("k-textbox");
+            $(this).css("width", "100%");
+        });
+
+        //Red Underline for validation        
+        $('input.required').each(function () {
+            $(this).css('border-bottom', '1px solid red');
+        });
+        $('.required>.k-dropdown-wrap > .k-input').each(function () {
+            $(this).css('border-bottom', '1px solid red');
+        });
+
+        //Kendo Validator
+        $("#vendorForm").kendoValidator().data("kendoValidator");
+
+        //Kendo File Upload
+        $("#BINCertificate").kendoUpload({
+            dropZone: ".dropZoneElement"
+        });
+        // $("#BINCertificate").kendoUpload({
+
+        //     success: function (jsonData) {
+        //         debugger;
+        //         var obj = new Object();
+        //         obj.FileName = jsonData.files[0].name;
+        //         obj.FileExtension = jsonData.files[0].extension;
+        //         obj.FileSize = jsonData.files[0].size;
+        //         obj.FileUniqueName = jsonData.response.FileNameUniuqe;
+        //         obj.ModuleMasterId = $('#hdnVendorId').val();
+        //         obj.ModuleName = "Vendor";
+        //         obj.ActionType = jsonData.response.ActionType;
+        //         jsonData.files[0].fileUniq = jsonData.response.FileNameUniuqe;
+
+        //         $(".k-file-progress .file-wrapper .view-test").html('<a href="../DocumentFile/' + obj.FileUniqueName + '" type="button" class="k-button "  target="_blank"><span class="k-button-icon k-icon k-i-eye" title="View"></span></a>');
+
+        //         if (obj.ModuleMasterId != "0") {
+
+        //             SaveDocumentDetails(obj);
+        //         } else {
+        //             files.push(obj);
+        //         }
+        //     },
+        //     remove: function (e) {
+        //         // Check if the event object and its properties are defined
+        //         if (e && e.files && e.files[0] && e.files[0].chunkIndex !== undefined) {
+        //             // Accessing properties safely without encountering undefined values
+        //             e.files[0].name = e.files[0].fileUniq;
+        //             console.log(e);
+        //         } else {
+        //             console.error("Error: Invalid event object or properties");
+        //         }
+        //     },
+        //     async: {
+        //         chunkSize: 11000, // bytes
+        //         saveUrl: "/Sample/Purchase/CreateDocument",
+        //         removeUrl: "/Sample/Purchase/Remove",
+        //         autoUpload: true
+        //     },
+        //     files: files,
+        //     dropZone: ".dropZoneElement"
+        // }).data("kendoUpload");
+
+        // Click event handler for the Cancel button
+        $("#cancelButton").click(function () {
+            // Close the modal without saving
+            $("#divModal").data("kendoWindow").close();
+        });
+        $("#btnSaveVendor").click(function () {
+            SaveVendor(event);
+            $("#divModal").data("kendoWindow").close();
+        });
+        $("#btnUpdate").click(function () {
+            UpdateVendor(event);
+            $("#divModal").data("kendoWindow").close();
+        });               
+    })
+    function uploadFile() {
+        var fileInput = document.getElementById('BINCertificate');
+        var file = fileInput.files[0];
+        var formData = new FormData();
+        formData.append('file', file);
+        debugger;
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/Vendor/UploadFile', true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                document.getElementById('message').textContent = xhr.responseText;
+            } else {
+                document.getElementById('message').textContent = 'Failed to upload file.';
+            }
+        };
+        xhr.send(formData);
+    }
+    function SaveVendor(event) {
+        var validator = $("#vendorForm").kendoValidator().data("kendoValidator");
+        var validationSummary = $("#validation-summary");
+        event.preventDefault();
+        if (validator.validate()) {
+            var objVendor = CreateVendorObject();
+            $.ajax({
+                url: '/Sample/Vendor/SaveVendor', // Adjust the URL according to your routing
+                method: 'post',
+                data: objVendor,
+                success: function () {
+                    var grid = $("#vendorGrid").data("kendoGrid");
+                    grid.dataSource.read();
+                    alert("Save Successfully!");
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error Response:", xhr.responseText);
+                    alert("Error: " + error);
+                }
+            });
+        }
+        else {
+            validationSummary.html("<div class='k-messagebox k-messagebox-error'> Please!Give all Required Data.</div>");
+        }
+    }
+
+    function CreateVendorObject() {
+        var obj = new Object();
+        obj.VendorId = $("#hdnVendorId").val();
+        obj.VendorCode = $("#VendorCode").val();
+        obj.VendorName = $("#VendorName").val();
+        obj.VendorAddress = $("#VendorAddress").val();
+        obj.VendorEmail = $("#VendorAddress").val();
+        obj.AttachmentsList = files;
+        return obj;
+    }
+
+    function ClickEventForEditButton(e) {
+
+        e.preventDefault();
+        $("#divModal").data("kendoWindow").center().open();
+        $("#btnUpdate").show();
+        $("#btnSaveVendor").hide();
+        e.preventDefault();
+        var grid = $("#vendorGrid").data("kendoGrid");
+        var tr = $(e.currentTarget).closest("tr");
+        var selectedItem = this.dataItem(tr);
+        grid.select(tr);
+        if (selectedItem != null) {
+            FillVendorGroupForm(selectedItem);
+        }
+    }
+
+    function FillVendorGroupForm(obj) {
+
+        $("#hdnVendorId").val(obj.vendorId);
+        $("#VendorCode").val(obj.vendorCode);
+        $("#VendorName").val(obj.vendorName);
+        $("#VendorAddress").val(obj.vendorAddress);
+        $("#VendorEmail").val(obj.vendorEmail);        
+        $("#BINCertificate").val(obj.binCertificate);
+    }
+
+    function ClearForm() {
+        $("#hdnVendorId").val(0);
+        $("#VendorCode").val("");
+        $("#VendorName").val("");
+        $("#VendorAddress").val("");
+        $("#VendorEmail").val("");
+        $("#BINCertificate").data("kendoUpload").clearAllFiles(); // Clear the file input field
+        document.getElementById('message').textContent = '';
+
+        // Remove validation messages
+        var validator = $("#vendorForm").kendoValidator().data("kendoValidator");
+        validator.hideMessages();
+
+        // Remove error indicators from form fields
+        $("#vendorForm").find(".k-invalid").removeClass("k-invalid"); // Remove 'k-invalid' class
+        $("#vendorForm").find(".k-invalid-msg").hide();
+    };    
+
+    function UpdateVendor(event) {
+        var validator = $("#vendorForm").kendoValidator().data("kendoValidator");
+        var validationSummary = $("#validation-summary");
+        event.preventDefault();
+        if (validator.validate()) {
+            var objVendorGroup = CreateVendorObject();
+
+            $.ajax({
+                url: '/Vendor/UpdateVendor', // Adjust the URL according to your routing
+                method: 'post',
+                data: objVendorGroup,
+                success: function () {
+                    var grid = $("#vendorGrid").data("kendoGrid");
+                    grid.dataSource.read();
+                    alert("Update Successfully!");
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error Response:", xhr.responseText);
+                    alert("Error: " + error);
+                }
+
+            });
+        }
+        else {
+            validationSummary.html("<div class='k-messagebox k-messagebox-error'> Please!Give all Required Data.</div>");
+        }
+    }
+</script>
+
+<style>
+    .clsName, .clsType {
+        width: 100%;
+    }
+
+    .clsDescription {
+        height: 51px !important;
+        width: 100%;
+    }
+
+    .k-grid tbody .k-button {
+        min-width: 43px;
+        height: 34px;
+    }
+</style>

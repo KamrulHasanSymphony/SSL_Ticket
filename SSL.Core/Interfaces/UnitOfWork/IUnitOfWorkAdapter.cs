@@ -1,0 +1,12 @@
+﻿using System;
+using SSL.Core.Interfaces.UnitOfWork;
+
+namespace UnitOfWork.Interfaces
+{
+    public interface IUnitOfWorkAdapter : IDisposable
+    {
+        IUnitOfWorkRepository Repositories { get; }
+        void SaveChanges();
+        void RollBack();
+    }
+}

@@ -1,0 +1,97 @@
+﻿@model SSL.Sample.SSL.Sample.Models.PurchaseHeaderVM
+@{
+    ViewBag.Title = "Purchase Info";
+    Layout = "_Layout";
+}
+
+<script src="~/JavaScript/Purchase/Purchase.js"></script>
+
+<div class="sapcer4"></div>
+<!--Buttons-->
+<div class="container-fluid">
+    <button type="submit" title="Add New Vendor" id="btnNew" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;New</button>
+    <button type="submit" title="Post Data" id="btnPost" class="btn btn-success"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Post</button>
+    <button type="button" title="Export Data" id="btnExport" class="btn" style="background-color:#4d0000;color:white"><i class="fas fa-file-export" aria-hidden="true"></i>&nbsp;Export</button>
+    <button type="button" id="btnIndex" class="btn btn-primary" style="display: none"><i class="fa fa-th" aria-hidden="true"></i>&nbsp;Index</button>
+    <button type="button" id="btnSave" class="btn btn-success" style="display: none"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Save</button>
+    <button type="button" id="btnUpdate" class="btn btn-success" style="display: none"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Update</button>
+</div>
+<div class="sapcer4"></div>
+<!-- Purchase Grid -->
+<div class="container-fluid" id="divGrid">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Purchase Informations</h3>
+        </div>
+        <div id="kPurchaseGrid">
+
+        </div>
+    </div>
+</div>
+
+<!--Forms--!>
+<section class="content displayNone" id="divForm">
+    @Html.Partial("~/Areas/Sample/Views/Purchase/Create.cshtml")
+</section>
+
+<!--Modal-->
+<section class="content displayNone" id="divModal">
+    @Html.Partial("~/Areas/Sample/Views/Purchase/VendorModal.cshtml")
+</section>
+
+<section class="content displayNone" id="divVendorSearchModal">
+    @Html.Partial("~/Areas/Sample/Views/Purchase/VendorSearchModal.cshtml")
+</section>
+
+<style>
+    .clsName, .clsType, .clsDescription, .clsEmail {
+        width: 96%;
+    }
+
+    .k-grid-delete {
+        background-color: #ff0000;
+        color: white;
+    }
+
+    /* Change the background color of the create button */
+    .k-grid-add {
+        background-color: #17a2b8; /* Replace with your desired color */
+    }
+
+    /* Change the text color of the create button */
+    .k-grid-add {
+        color: #ffffff; /* Replace with your desired color */
+    }
+
+        .k-grid-add:hover {
+            background-color: #17a2b8;
+        }
+
+        /* Text color change on hover */
+        .k-grid-add:hover {
+            color: white; /* Replace with your desired hover text color */
+        }
+
+    .k-grid tbody .k-button {
+        min-width: 43px;
+        height: 34px;
+    }
+
+    .k-checkbox:checked {
+        border-color: #28a745;
+        color: #28a745;
+        background-color: #fff;
+    }
+
+    .k-datetimepicker {
+        width: 100%;
+    }
+
+    .col-md-1 {
+        flex: 0 0 8.333333%;
+        max-width: 4%;
+        /* margin-left: -1%; */
+    }
+
+
+</style>

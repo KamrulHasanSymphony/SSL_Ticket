@@ -1,0 +1,150 @@
+﻿@model SSL.Ticket.SSL.Ticket.Models.UserProfile
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+
+<link href="~/css/button.css" rel="stylesheet" />
+<style>
+    .spacer4 {
+        height: 40px;
+    }
+
+    .k-dropdown-wrap.k-state-default{
+        width:93% !important;
+    }
+</style>
+@if (!string.IsNullOrEmpty(Model.UserName))
+{
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header p-2">
+                <button type="button" title="Add New"
+                        data-url="/GLJournalEntry/Create"
+                        id="CreateGL" class="btn btn-success btn-sm mt-2 mb-2 mr-0 btnSave">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                    &nbsp;
+                    New
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="container-fluid">
+    <form id="frm_user">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Create User</h3>
+            </div>
+            <div class="card-body">
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.Operation)
+                @Html.HiddenFor(model => model.ClientId)
+                @Html.HiddenFor(model => model.DepartmentId)
+                <div class="form-group">
+                    <div class="row">
+
+                        <div class="col-sm-3">
+                            @Html.LabelFor(model => model.UserId)
+                            @Html.TextBoxFor(model => model.UserId, new { @class = "form-control form-control-sm", autocomplete = "off" })
+                            @Html.ValidationMessageFor(model => model.UserId)
+                        </div>
+
+                        <div class="col-sm-3">
+                            @Html.LabelFor(model => model.UserName)
+                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control form-control-sm", autocomplete = "off" })
+                            @Html.ValidationMessageFor(model => model.UserName)
+                        </div>
+
+
+
+                        <div class="col-sm-3">
+                            @Html.LabelFor(model => model.Email)
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-control-sm" })
+                            @Html.ValidationMessageFor(model => model.Email)
+                        </div>
+                        <div class="col-sm-3">
+                            @Html.LabelFor(model => model.PhoneNumber)
+                            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control form-control-sm" })
+                            @Html.ValidationMessageFor(model => model.PhoneNumber)
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="spacer4"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            @Html.LabelFor(model => model.Password)
+                            @Html.PasswordFor(model => model.Password, new { @class = "form-control form-control-sm", autocomplete = "off" })
+                            @Html.ValidationMessageFor(model => model.Password)
+                        </div>
+
+                        <div class="col-sm-3">
+                            @Html.LabelFor(model => model.ConfirmPassword)
+                            @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control form-control-sm", autocomplete = "off" })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                        </div>
+                        @* <div class="col-sm-3">
+                            @Html.LabelFor(model => model.DepartmentId)
+                            @Html.TextBoxFor(model => model.DepartmentId, new { @class = "form-control form-control-sm" })
+                            @Html.ValidationMessageFor(model => model.DepartmentId)
+                        </div> *@
+                        <div class="col-sm-3">
+                            @Html.LabelFor(model => model.ClientId)
+                            <input id="cmbClient" class="form-control form-control-sm" placeholder="--Select Client--" validationmessage="*" />
+
+                            @Html.ValidationMessageFor(model => model.ClientId)
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </form>
+
+
+
+
+    @if (Model.Operation.Equals("update", StringComparison.OrdinalIgnoreCase))
+    {
+        <button type="button" name="btnName" value="Update" title="Update Data" class="btn btn-warning block btnsave sslUpdate">&nbsp;Update</button>
+
+    }
+    else
+    {
+        <button type="button" name="btnName" value="Update" title="Save Data" class="btn btn-success block btnsave sslSave">&nbsp;Register</button>
+
+    }
+
+
+</div>
+
+
+@section scripts {
+
+    <script src="/js/app/Services/CommonService.js"></script>
+    <script src="/js/app/Services/UserProfileService.js"></script>
+    <script src="/js/app/Controllers/UserProfileController.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+
+            UserProfileController.init();
+
+        });
+
+    </script>
+}
+

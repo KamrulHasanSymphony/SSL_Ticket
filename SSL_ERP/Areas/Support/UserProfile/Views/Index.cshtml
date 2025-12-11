@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+<script src="~/javascript/userprofile/userprofile.js"></script>
+<div class="container-fluid">
+            <button type="button" title="Add New UserProfile" data-url="/UserProfile/Create" onclick="GoTo(this)" id="" class="btn btn-primary NewButton addNewButton"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;New</button>
+            
+</div>
+<div class="sapcer4"></div>
+<div class="container-fluid">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">
+                List Of Users
+            </h3>
+        </div>
+        <div class="card-body">
+            <div id="userProfileGrid"></div>
+        </div>
+    </div>
+</div>

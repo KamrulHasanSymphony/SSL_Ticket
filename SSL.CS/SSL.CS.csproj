@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="SSL.Common.Core\Interfaces\Repository\VendorGroup\**" />
+    <Compile Remove="SSL.Common.Core\Interfaces\Repository\Vendor\**" />
+    <Compile Remove="SSL.Common.Models\Vendor\**" />
+    <Compile Remove="SSL.Common.Repository.SqlServer\VendorGroup\**" />
+    <Compile Remove="SSL.Sample.DataService\**" />
+    <EmbeddedResource Remove="SSL.Common.Core\Interfaces\Repository\VendorGroup\**" />
+    <EmbeddedResource Remove="SSL.Common.Core\Interfaces\Repository\Vendor\**" />
+    <EmbeddedResource Remove="SSL.Common.Models\Vendor\**" />
+    <EmbeddedResource Remove="SSL.Common.Repository.SqlServer\VendorGroup\**" />
+    <EmbeddedResource Remove="SSL.Sample.DataService\**" />
+    <None Remove="SSL.Common.Core\Interfaces\Repository\VendorGroup\**" />
+    <None Remove="SSL.Common.Core\Interfaces\Repository\Vendor\**" />
+    <None Remove="SSL.Common.Models\Vendor\**" />
+    <None Remove="SSL.Common.Repository.SqlServer\VendorGroup\**" />
+    <None Remove="SSL.Sample.DataService\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="SSL.Common.Models\CSCompanyinfos.cs" />
+    <Compile Remove="SSL.Common.Models\CSDbConfig.cs" />
+    <Compile Remove="SSL.Common.UnitOfWork.SqlServer\IVendorGroupRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0-preview5.24024.3" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Data.SqlClient">
+      <HintPath>C:\Users\Rakib\.nuget\packages\microsoft.data.sqlclient\2.1.4\lib\netstandard2.1\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:\Users\Rakib\.nuget\packages\newtonsoft.json\13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

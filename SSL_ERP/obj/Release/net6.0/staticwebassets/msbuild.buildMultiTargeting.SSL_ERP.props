@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SSL_ERP.props" />
+</Project>

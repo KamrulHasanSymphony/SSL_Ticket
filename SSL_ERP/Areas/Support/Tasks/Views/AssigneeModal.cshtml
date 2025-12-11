@@ -1,0 +1,28 @@
+﻿
+<div class="container-fluid">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            <div id="validation-summary" style="margin-top:.5%;">
+            </div>
+            <!-- general form elements -->
+            <div class="card card-primary" style="width:97%;">
+                <form id="assignUserForm" class="k-form">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="hidden" id="hdnTAssignId" value="0" />
+                            <label for="cmbAssignUsr">Assign User</label>
+                            <input id="cmbAssignUsr" class="KDropDown" placeholder="Select Assignee..." validationmessage="*" />
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <button title="Add Assigne" id="btnSaveAssigne" class="btn btn-success"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Save</button>
+                        <button title="Is Active" id="btnAssigneIsAct" class="btn btn-success" style="display:none"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;InActive</button>
+                        <button type="button" id="cancelAssigneButton" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

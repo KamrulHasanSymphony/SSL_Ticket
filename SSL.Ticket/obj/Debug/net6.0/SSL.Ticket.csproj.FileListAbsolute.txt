@@ -1,0 +1,15 @@
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\bin\Debug\net6.0\SSL.Ticket.deps.json
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\bin\Debug\net6.0\SSL.Ticket.dll
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\bin\Debug\net6.0\SSL.Ticket.pdb
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\bin\Debug\net6.0\SSL.CS.dll
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\bin\Debug\net6.0\SSL.CS.pdb
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\obj\Debug\net6.0\SSL.Ticket.csproj.AssemblyReference.cache
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\obj\Debug\net6.0\SSL.Ticket.GeneratedMSBuildEditorConfig.editorconfig
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\obj\Debug\net6.0\SSL.Ticket.AssemblyInfoInputs.cache
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\obj\Debug\net6.0\SSL.Ticket.AssemblyInfo.cs
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\obj\Debug\net6.0\SSL.Ticket.csproj.CoreCompileInputs.cache
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\obj\Debug\net6.0\SSL.Ticket.csproj.Up2Date
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\obj\Debug\net6.0\SSL.Ticket.dll
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\obj\Debug\net6.0\refint\SSL.Ticket.dll
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\obj\Debug\net6.0\SSL.Ticket.pdb
+D:\SSLTicketGit\SSL_TicketSystem\SSL.Ticket\obj\Debug\net6.0\ref\SSL.Ticket.dll

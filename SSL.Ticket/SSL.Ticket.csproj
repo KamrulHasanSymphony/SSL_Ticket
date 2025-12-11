@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="SSL.Ticket.Core\Interfaces\Services\ExcellUpload\**" />
+    <Compile Remove="SSL.Ticket.Services\ExcellUpload\**" />
+    <EmbeddedResource Remove="SSL.Ticket.Core\Interfaces\Services\ExcellUpload\**" />
+    <EmbeddedResource Remove="SSL.Ticket.Services\ExcellUpload\**" />
+    <None Remove="SSL.Ticket.Core\Interfaces\Services\ExcellUpload\**" />
+    <None Remove="SSL.Ticket.Services\ExcellUpload\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="SSL.Ticket.Core\Interfaces\Repository\Ticket\ISupportRepository.cs" />
+    <Compile Remove="SSL.Ticket.Models\UserProfiles.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="6.2.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.2" />
+    <PackageReference Include="MySql.Data" Version="9.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SSL.CS\SSL.CS.csproj" />
+  </ItemGroup>
+
+</Project>

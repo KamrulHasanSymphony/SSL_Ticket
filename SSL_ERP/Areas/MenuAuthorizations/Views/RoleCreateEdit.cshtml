@@ -1,0 +1,76 @@
+﻿@using SSL.Ticket.SSL.Ticket.Models
+@model SSL.Ticket.SSL.Ticket.Models.UserRoleVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<link href="~/css/button.css" rel="stylesheet" />
+
+<div class="container-fluid">
+    <form id="frm_role">
+        <div class="card card-secondary">
+            <div class="card-header">
+                <h3 class="card-title"> Create User Role Info </h3>
+
+                <button type="button" title="Add New Branch"
+
+                data-url="/MenuAuthorization/RoleCreate"
+                        id="ubNew" class="pull-right button NewButton addNewButton" style="float: right;">
+                    New
+                </button>
+
+            </div>
+
+            <div class="card-body">
+                @Html.HiddenFor(model => model.Id)
+                @Html.HiddenFor(model => model.Operation)
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        @Html.LabelFor(model => model.Name)
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control form-control-sm", autocomplete = "off" })
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+
+
+    <div class="card">
+        <div class="card-header p-2">
+
+            @if (Model.Operation.Equals("update", StringComparison.OrdinalIgnoreCase))
+            {
+                <button class="button btnRoleSave sslUpdate" type="button" id="">Update</button>
+            }
+            else
+            {
+                <button class="button btnRoleSave sslSave" type="button" id="">Save</button>
+            }
+
+        </div>
+    </div>
+
+</div>
+
+
+@section scripts{
+
+    <script src="/js/app/Services/CommonService.js"></script>
+    <script src="/js/app/Services/MenuAuthorizationService.js"></script>
+    <script src="/js/app/Controllers/MenuAuthorizationController.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            MenuAuthorizationController.init();
+
+        });
+
+    </script>
+
+}

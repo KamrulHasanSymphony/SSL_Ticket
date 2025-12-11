@@ -1,0 +1,518 @@
+﻿@model SSL.Sample.SSL.Sample.Models.AProductVM
+@{
+    ViewBag.Title = "Product Info";
+    Layout = "_Layout";
+}
+
+<div class="sapcer4"></div>
+<div class="container-fluid">
+    <div style="display: none" id="formAppend"></div>
+    <button type="submit" title="Add New Vendor" id="btnNew" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;New</button>
+    <button type="button" id="btnIndex" class="btn btn-primary" style="display: none"><i class="fa fa-th" aria-hidden="true"></i>&nbsp;Index</button>
+    <button type="button" id="btnSave" class="btn btn-success" style="display: none"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Save</button>
+    <button type="button" id="btnUpdate" class="btn btn-success" style="display: none"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Update</button>
+</div>
+<div class="sapcer4"></div>
+<section class="content displayNone" id="divForm">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div id="validation-summary" style="margin-top:.5%;">
+                        </div>
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Products</h3>
+                            </div>
+
+                            <form id="productForm">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input type="hidden" id="hdnProductId" value="0" />
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <div class="kLabel4">
+                                                    @Html.LabelFor(model => model.ProductCode)
+                                                </div>
+                                                <div class="kInput8 ">
+                                                    <span class="k-form-field-wrap">
+                                                        <input type="text" id="ProductCode" name="ProductCode" class="kTextbox required" required validationMessage="Enter {0}" />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <div class="kLabel4">
+                                                    @Html.LabelFor(model => model.ProductName)
+                                                </div>
+                                                <div class="kInput8 ">
+                                                    <span class="k-form-field-wrap">
+                                                        <input type="text" id="ProductName" name="ProductName" class="kTextbox required" required validationMessage="Enter {0}" />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                                <div class="col-lg-5 col-md-5 col-sm-5">
+                                                    @Html.LabelFor(model => model.OpeningDate)
+                                                </div>
+                                                <div class="col-lg-7 col-md-7 col-sm-7">
+                                                    <input id="OpeningDate" placeholder="day.month.year hours:minutes" class="required" name="Opening Date" required validationMessage="Enter {0}" />
+                                                </div>
+                                            </div>
+
+                                            @* <div class="col-sm-1 col-md-1 col-lg-1" style="width:10px;"></div> *@
+                                            <div class="col-lg-3 col-md-3 col-sm-3" style="margin-top:2.7%;">
+                                                @Html.LabelFor(model => model.IsActive)
+                                                    <input type="checkbox" id="IsActive" checked="checked" />
+                                            </div>
+                                        </div>
+
+                                        <div class="sapcer4"></div>
+
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="kLabel4">
+                                                    @Html.LabelFor(model => model.OpeningQuantity)
+                                                </div>
+                                                <div class="kInput8">
+                                                    @Html.TextBoxFor(m => m.OpeningQuantity, new { @class = "KNumericTextBox"})
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="kLabel4">
+                                                    @Html.LabelFor(model => model.UOM)
+                                                </div>
+                                                <div class="kInput8">
+                                                    @Html.TextBoxFor(m => m.UOM, new { @class = "kTextbox",id="UOM" })
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                                <div class="kLabel4">
+                                                    @Html.LabelFor(model => model.VATRate)
+                                                </div>
+                                                <div class="kInput8">
+                                                    @Html.TextBoxFor(m => m.VATRate, new { @class = "kTextbox",id="VATRate"})
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>        
+    </div>
+</section>
+
+<!-- Product Grid -->
+<div class="container-fluid" id="divGrid">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Product Informations</h3>
+        </div>
+        <div id="kProductGrid">
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        
+        $("#IsActive").kendoSwitch({
+            messages: {
+                checked: "YES",
+                unchecked: "NO"
+            }
+        });
+
+        //Grid
+        var gridDataSource = new kendo.data.DataSource({
+            type: "json",
+            serverPaging: true,
+            serverSorting: true,
+            serverFiltering: true,
+            allowUnsort: true,
+            autoSync: true,
+            pageSize: 10,
+            transport: {
+                read: {
+                    url: "/Product/GetAllProductData",
+                    type: "POST",
+                    dataType: "json",
+                    cache: false
+                },
+                parameterMap: function (options) {
+                    return options;
+                }
+            },
+            batch: true,
+            schema: {
+                data: "items",
+                total: "totalCount",
+                model: {
+                    id: "ItemNo",
+                    fields: {
+                        ProductCode: { type: "string" },
+                        ProductName: { type: "string" },
+                        IsActive: { type: "bool" },
+                        OpeningDate: { type: "date" },
+                        OpeningQuantity: { type: "number" },
+                        UOM: { type: "string" },
+                        VATRate: { type: "number" }
+                    }
+                }
+            }
+        });
+
+        $("#kProductGrid").kendoGrid({
+            dataSource: gridDataSource,
+            pageable: {
+                refresh: true,
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true,
+                pageSizes: [10, 20, 50, "all"]
+            },
+            noRecords: true,
+            messages: {
+                noRecords: "No Record Found!"
+            },
+            scrollable: true,
+            filterable: {
+                extra: true,
+                operators: {
+                    string: {
+                        startswith: "Starts with",
+                        endswith: "Ends with",
+                        contains: "Contains",
+                        doesnotcontain: "Does not contain",
+                        eq: "Is equal to",
+                        neq: "Is not equal to",
+                        gt: "Is greater then",
+                        lt: "Is less then"
+                    }
+                }
+            },
+            sortable: true,
+            persistSelection: false,
+            resizable: true,
+            reorderable: true,
+            groupable: true,
+            toolbar: ["excel", "pdf", "search"],
+            search: {
+                fields: ["productCode", "productName"]
+            },
+            columns: [
+                {
+                    command: [{
+                        name: "edit", text: "", iconClass: "k-icon k-i-edit", className: "md-btn md-btn-flat md-btn-flat-primary", click: ClickEventForEditButton
+                    }], title: "&nbsp;", width: 80, title: "Action"
+                },
+                
+                {
+                    field: "productCode", title: "Product Code", sortable: true, width: 150
+                },
+                {
+                    field: "productName", title: "Product Name", sortable: true, width: 200
+                },
+                {
+                    field: "openingDate", title: "Opening Date", sortable: true, width: 150, template: '#= kendo.toString(kendo.parseDate(openingDate), "dd-MMM-yyyy") #', filterable: {
+                        ui: "datepicker"
+                    }
+                },
+                {
+                    field: "openingQuantity", title: "Opening Quantity", sortable: true, width: 150
+                },
+                {
+                    field: "uom", title: "UOM", sortable: true, width: 150
+                },
+                {
+                    field: "vatRate", title: "Vat Rate", sortable: true, width: 150
+                },                
+                {
+                    field: "isActive", title: "Is Active", sortable: true, width: 150, template: function (dataItem) {
+                        return '<input disabled id="switch_' + dataItem.uid + '" class="kendo-switch" type="checkbox" ' + (dataItem.isActive ? 'checked' : '') + ' />';
+                    }
+                }
+                
+            ],
+            editable: false,
+            selectable: "row",
+            navigatable: true,
+            columnMenu: true
+
+        });
+
+        //Date Picker
+        $("#OpeningDate").kendoDateTimePicker({
+            format: "dd.MM.yyyy hh:mm tt",
+            dateInput: true
+        });
+
+        //Text Box
+        $(".kTextbox").each(function () {
+            $(this).addClass("k-textbox");
+            $(this).css("width", "100%");
+        });
+
+
+        //Place-Holder;
+        $('.kLabel4').each(function () {
+            var label = $(this).text().trim();
+            var input = $(this).next('.kInput,.kInput8').find('input, textarea, select');
+            input.attr('placeholder', label);
+        });
+        $(".kLabel").each(function () {
+            $(this).addClass("col-sm-2 col-md-2 col-lg-2");
+        });
+        $(".kInput").each(function () {
+            $(this).addClass("col-lg-4 col-md-4 col-sm-4");
+        });
+        $(".kLabel4").each(function () {
+            $(this).addClass("col-lg-4 col-md-4 col-sm-4");
+        });
+        $(".kInput6").each(function () {
+            $(this).addClass("col-md-6 col-lg-6 col-sm-6");
+        });
+        $(".kRow").each(function () {
+            $(this).css("margin-bottom", "5px");
+            $(this).css("margin-top", "5px");
+        });
+        $(".body").each(function () {
+            $(this).css("margin-bottom", "5px");
+            $(this).css("margin-top", "5px");
+        });
+        $('body').css({
+            'font-size': '1.25em ! important'
+        });
+        $(".kDtPicker").each(function () {
+            $(this).css("width", "70%");
+        });
+
+        //Red Underline for validation
+        $('input.k-widget.k-datepicker.dtPicker.required').removeClass('required');
+        $('k-widget k-datepicker dtPicker required').removeClass('required');
+
+        $('input.required').each(function () {
+            $(this).css('border-bottom', '1px solid red');
+        });
+
+        $('.required>.k-dropdown-wrap > .k-input').each(function () {
+            $(this).css('border-bottom', '1px solid red');
+        });
+
+        //Text Area
+        $(".kTextArea").each(function () {
+            $(this).css("width", "100%");
+            $(this).css("height", "70px");
+            $(this).css("border-color", "#a3d0e4");
+            $(this).css("border-radius", "3px");
+        });
+
+
+        //Numeric TExt Box
+        $(".KNumericTextBox").kendoNumericTextBox({
+            min: 0,
+            //max: 100,
+            value: 0,
+            step: 1,
+            format: "#.00",
+            decimals: 2
+        });
+        // $(".KVATTextBox").kendoNumericTextBox({
+        //     min: 0,
+        //     //max: 100,
+        //     value: 0
+        // });
+        $(".KNumericTextBox,.KVATTextBox").each(function () {
+            $(this).css("width", "100%");
+
+        });
+
+        //Dropdown Width
+        $(".KDropDown").each(function () {
+            $(this).css("width", "100%");
+        });
+
+        //Kendo Validator
+        $("#productForm").kendoValidator().data("kendoValidator");
+
+        $("#btnNew").click(function () {
+            $("#divGrid").hide();
+            ClearForm();
+            $("#divForm").show();
+            $("#btnNew").hide();
+            $("#btnUpdate").hide();
+            $("#btnSave").show();
+            $("#btnIndex").show();
+        });
+        $("#btnIndex").click(function () {
+            $("#divGrid").show();
+            $("#divForm").hide();
+            $("#btnSave").hide();
+            $("#btnNew").show();
+            $("#btnIndex").hide();
+
+        });
+        $("#btnSave").click(function () {
+            SaveVendor(event);
+            $("#divGrid").show();
+            $("#btnIndex").hide();
+            $("#divForm").hide();
+            $("#btnSave").hide();
+            $("#btnNew").show();
+        });
+        $("#btnUpdate").click(function () {
+            $("#divGrid").show();
+            $("#divForm").hide();
+            UpdateProduct();
+            $("#btnIndex").show();
+            $("#btnSave").hide();
+            $("#btnUpdate").hide;
+        });             
+        
+    })
+    function ClearForm() {
+        $("#hdnProductId").val(0);
+        $("#ProductCode").val("");
+        $("#ProductName").val("");
+        $("#IsActive").data("kendoSwitch").value("");
+        var openingDate = $("#OpeningDate").data("kendoDateTimePicker");
+        openingDate.value(""); // Assuming this returns a JavaScript Date object
+        var numerictextbox = $("#OpeningQuantity").data("kendoNumericTextBox")
+        numerictextbox.value("");
+        $("#UOM").val("");
+        $("#VATRate").val("");
+
+        // Remove validation messages
+        var validator = $("#productForm").kendoValidator().data("kendoValidator");
+        validator.hideMessages();
+
+        // Remove error indicators from form fields
+        $("#productForm").find(".k-invalid").removeClass("k-invalid"); // Remove 'k-invalid' class
+        $("#productForm").find(".k-invalid-msg").hide();
+
+    };
+    function SaveVendor(event) {
+        var validator = $("#productForm").kendoValidator().data("kendoValidator");
+        var validationSummary = $("#validation-summary");
+        event.preventDefault();
+        if (validator.validate()) {
+            var objProduct = CreateProductObject();
+
+            $.ajax({
+                url: '/Sample/Product/SaveProduct', // Adjust the URL according to your routing
+                method: 'post',
+                data: objProduct,
+                success: function () {
+                        var grid = $("#kProductGrid").data("kendoGrid");
+                        grid.dataSource.read();
+                        alert("Save Successfully!");
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error Response:", xhr.responseText);
+                    alert("Error: " + error);
+                }
+            });
+        }
+        else {
+            validationSummary.html("<div class='k-messagebox k-messagebox-error'> Please!Give all Required Data.</div>");
+        }
+
+    }
+    function CreateProductObject() {
+        var obj = new Object();        
+        obj.ProductId = $("#hdnProductId").val();
+        obj.ProductCode = $("#ProductCode").val();
+        obj.ProductName = $("#ProductName").val();
+        obj.IsActive = $("#IsActive").data("kendoSwitch").value();
+
+        var openingDate = $("#OpeningDate").data("kendoDateTimePicker");
+        var dateValue = openingDate.value(); // Assuming this returns a JavaScript Date object
+
+        // Pad function to ensure double digits for months and days
+        function pad(number) {
+            if (number < 10) {
+                return '0' + number;
+            }
+            return number;
+        }
+        // Get the individual components of the date
+        var year = dateValue.getFullYear();
+        var month = pad(dateValue.getMonth() + 1); // Months are zero-indexed
+        var day = pad(dateValue.getDate());
+        var hours = pad(dateValue.getHours());
+        var minutes = pad(dateValue.getMinutes());
+        var seconds = pad(dateValue.getSeconds());
+        // Format the date string
+        var formattedDate = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds + '.000';
+        //var openingDate = $("#OpeningDate").data("kendoDateTimePicker");
+        obj.OpeningDate = formattedDate;
+        obj.OpeningQuantity = $("#OpeningQuantity").val();
+        obj.UOM = $("#UOM").val();
+        obj.VATRate = $("#VATRate").val();
+        return obj;
+    }
+    function ClickEventForEditButton(e) {
+        $("#btnSave").hide();
+        $("#btnUpdate").show();
+        $("#btnIndex").show();
+        e.preventDefault();
+        var grid = $("#kProductGrid").data("kendoGrid");
+        var tr = $(e.currentTarget).closest("tr");
+        var selectedItem = this.dataItem(tr);
+        grid.select(tr);
+        if (selectedItem != null) {
+            $("#divGrid").hide();
+            $("#divForm").show();
+        }
+        FillProductForm(selectedItem);
+    }
+    function FillProductForm(obj) {
+        $("#hdnProductId").val(obj.productId);
+        $("#ProductCode").val(obj.productCode);
+        $("#ProductName").val(obj.productName);
+        $("#IsActive").data("kendoSwitch").value(obj.isActive);
+        var openingDate = $("#OpeningDate").data("kendoDateTimePicker");
+        openingDate.value(obj.openingDate); // Assuming this returns a JavaScript Date object  
+        var openingQuantity = $("#OpeningQuantity").data("kendoNumericTextBox")
+        openingQuantity.value(obj.openingQuantity);
+        $("#UOM").val(obj.uom);
+        $("#VATRate").val(obj.vatRate);
+    }
+    function UpdateProduct() {
+        var validator = $("#productForm").kendoValidator().data("kendoValidator");
+        var validationSummary = $("#validation-summary");
+        event.preventDefault();
+        if (validator.validate()) {
+            var objVendor = CreateProductObject();
+
+            $.ajax({
+                url: '/Product/UpdateProduct', // Adjust the URL according to your routing
+                method: 'post',
+                data: objVendor,
+                success: function () {
+                    var grid = $("#kProductGrid").data("kendoGrid");
+                    grid.dataSource.read();
+                    alert("Update Successfully!");
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error Response:", xhr.responseText);
+                    alert("Error: " + error);
+                }
+            });
+        }
+        else {
+            validationSummary.html("<div class='k-messagebox k-messagebox-error'> Please!Give all Required Data.</div>");
+        }
+    }
+</script>
+
+<style>
+    .k-grid tbody .k-button {
+        min-width: 43px;
+        height: 34px;
+    }
+</style>

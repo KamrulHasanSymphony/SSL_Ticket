@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UIHelpers.MVC", "UIHelpers.MVC\UIHelpers.MVC.csproj", "{B412339D-21F5-4F72-AC3A-0D8022C4F89E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSL.Sample", "SSL.Sample\SSL.Sample.csproj", "{83542720-A04F-4E5F-959F-8B737CD085D4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSL_ERP", "SSL_ERP\SSL_ERP.csproj", "{B2636E21-047F-4431-9A07-B5A121E8A86B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8F6A56A1-5361-46BE-BB4F-6E880CDAC890} = {8F6A56A1-5361-46BE-BB4F-6E880CDAC890}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SSL.CS", "SSL.CS\SSL.CS.csproj", "{1EA77A57-EA07-47B1-ABD7-87042707E485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSL.Ticket", "SSL.Ticket\SSL.Ticket.csproj", "{8F6A56A1-5361-46BE-BB4F-6E880CDAC890}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B412339D-21F5-4F72-AC3A-0D8022C4F89E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B412339D-21F5-4F72-AC3A-0D8022C4F89E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B412339D-21F5-4F72-AC3A-0D8022C4F89E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B412339D-21F5-4F72-AC3A-0D8022C4F89E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83542720-A04F-4E5F-959F-8B737CD085D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83542720-A04F-4E5F-959F-8B737CD085D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83542720-A04F-4E5F-959F-8B737CD085D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83542720-A04F-4E5F-959F-8B737CD085D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2636E21-047F-4431-9A07-B5A121E8A86B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2636E21-047F-4431-9A07-B5A121E8A86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2636E21-047F-4431-9A07-B5A121E8A86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2636E21-047F-4431-9A07-B5A121E8A86B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EA77A57-EA07-47B1-ABD7-87042707E485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EA77A57-EA07-47B1-ABD7-87042707E485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EA77A57-EA07-47B1-ABD7-87042707E485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EA77A57-EA07-47B1-ABD7-87042707E485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F6A56A1-5361-46BE-BB4F-6E880CDAC890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F6A56A1-5361-46BE-BB4F-6E880CDAC890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F6A56A1-5361-46BE-BB4F-6E880CDAC890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F6A56A1-5361-46BE-BB4F-6E880CDAC890}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {842C7031-B28B-4F1A-A974-4932AC294A55}
+	EndGlobalSection
+EndGlobal

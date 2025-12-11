@@ -1,0 +1,58 @@
+﻿@using SSL.Ticket.SSL.Ticket.Models
+@model SSL.Ticket.SSL.Ticket.Models.UserRoleVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+<style>
+    .spacer4{
+        height:4px;
+    }
+</style>
+
+@* <div class="container-fluid">
+    <div class="card">
+        <div class="card-header p-2">
+            <button type="button" title="Add New Branch"
+                    data-url="/MenuAuthorization/RoleCreate"
+            id="ubNew" class="button NewButton addNewButton">
+            New
+            </button>
+
+        </div>
+    </div>
+</div> *@
+<div class="container-fluid">
+    <button type="button" title="Add New UserRole" data-url="/MenuAuthorization/Create" onclick="GoTo(this)" id="" class="btn btn-primary NewButton addNewButton"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;New</button>
+</div>
+<div class="spacer4"></div>
+<div class="container-fluid">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">
+                List Of Users
+            </h3>
+        </div>
+        <div class="card-body">
+            <div id="userRoleGrid"></div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script src="/js/app/Services/CommonService.js"></script>
+    <script src="/js/app/Services/MenuAuthorizationService.js"></script>
+    <script src="/js/app/Controllers/MenuAuthorizationController.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            MenuAuthorizationController.init();
+
+        });
+
+    </script>
+
+}

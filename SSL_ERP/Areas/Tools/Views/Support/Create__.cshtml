@@ -1,0 +1,317 @@
+﻿@model SSL.Sample.SSL.Sample.Models.Support.SupportVM
+@{
+    ViewBag.Title = "Supports Info";
+    Layout = "_Layout";
+}
+
+<div class="container-fluid">
+
+
+
+    @using (Html.BeginForm("CreateEdit", "Support", FormMethod.Post, new { @Id = "frm_Ticket" }))
+    {
+
+        <p class="text-center" style="margin-bottom:12px;margin-top:10px;">
+
+            @if (Model.Operation == "update")
+            {
+
+                if (Model.IsUpdateButtonCheck)
+                {
+                    <button type="button" style="font-size: 18px;" name="btnName" value="Update" title="Update Data" onclick="UpdateData()" class="btn btn-warning block">&nbsp;Update</button>
+                }
+
+            }
+            else if (Model.Operation == "add")
+            {
+                <button class="button btnSave sslSave" type="button" id="">Save</button>
+@*                 <button type="button" style="font-size: 18px;" name="btnName" value="Save" title="Save Data" onclick="save('frm_Ticket')" class="btn btn-primary block">&nbsp;Save</button>
+ *@            }
+
+            <button type="button" style="font-size: 18px;" title="Go To Index" data-url="/Support/Ticket" onclick="GoTo(this)" id="" class="btn btn-default block">&nbsp;Cancel</button>
+
+        </p>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="validation-summary" style="margin-top:.5%;">
+                    </div>
+                    <div class="card card-primary">
+                        <div class="card-header" id="usrcollaborationTab">
+                            <h3 class="card-title">User and Collaborators</h3>
+                        </div>
+                        <form id="UserTktForm">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <input type="hidden" id="hdnTicketId" />
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.TicketCode, new { @class = "pull-right" })
+                                            
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(m => m.TicketCode, new { @class = "kTextbox", disabled = "disabled", @placeholder = "Ticket Code" })
+                                        </div>
+                                    </div>
+                                    <div class="spacer4"></div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.TicketTitle, new { @class = "pull-right" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(m => m.TicketTitle, new { @class = "kTextbox", @placeholder = "Ticket Title" })
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.TicketStackHolder, new { @class = "pull-right" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="cmbStackHolder" class="KDropDown" placeholder="--Select Stack Holder--" validationmessage="*" />
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.CreatorEmail, new { @class = "pull-right" })
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.CreatorEmail, new { @placeholder = "Creator Email", @class = "kTextbox cCreatorEmail required", @readonly = "readonly" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.TicketStackHolderCC, new { @class = "pull-right" })
+
+                                            
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.TicketStackHolderCC, new { @placeholder = "CC", @class = " cTicketStackHolderCC kTextbox" })
+
+                                           
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.CreatorPhone, new { @class = "pull-right" })
+                                           
+                                        </div>
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.CreatorPhone, new { @placeholder = "Phone", @class = " cCreatorPhone kTextbox" })
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.Organization, new { @class = "pull-right" })
+
+                                            
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="cmbOrganization" class="KDropDown" placeholder="--Select Organization--" validationmessage="*" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-primary">
+                        <div class="card-header" id="infoOptionTab">
+                            <h3 class="card-title">Ticket Information and Options</h3>
+                        </div>
+                        <form id="tktInfoOptionForm" class="k-form">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.TicketSource, new { @class = "pull-right" })
+                                            
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="cmbTktSource" class="KDropDown" placeholder="--Select Source--" validationmessage="*" />
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.TicketTopic, new { @class = "pull-right" })
+                                           
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="cmbTktTopic" class="KDropDown" placeholder="--Select Topic--" validationmessage="*" />
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.DepartmentId, new { @class = "pull-right" })
+
+                                           
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="cmbTktDepartment" class="KDropDown" placeholder="--Select Department--" validationmessage="*" />
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.CreateDate, new { @class = "pull-right" })
+
+                                          
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="txtStartDate" placeholder="day.month.year hours:minutes" class="kDate" type="text" placeholder="Start Date" name="txtStartDate" validationmessage="*" />
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.DueDate, new { @class = "pull-right" })
+
+                                           
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="txtEndDate" placeholder="day.month.year hours:minutes" class="kDate" type="text" placeholder="End Date" name="txtEndDate" validationmessage="*" />
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.Status, new { @class = "pull-right" })
+                                         
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="cmbTktStatus" class="KDropDown" placeholder="--Select Status--" validationmessage="*" />
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.AssignToList, new { @class = "pull-right" })
+
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="cmbAssignTo" class="KDropDown" placeholder="--Select Assign To--" validationmessage="*" />
+                                        </div>
+                                    </div>
+
+                                    <div class="spacer4"></div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            @Html.LabelFor(model => model.Products, new { @class = "pull-right" })
+
+                                            
+                                        </div>
+                                        <div class="col-md-9">
+                                            <input id="cmbTktProducts" class="KDropDown" placeholder="--Select Products--" validationmessage="*" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header" id="responseTab">
+                            <h3 class="card-title">Response</h3>
+                        </div>
+                        <form id="UserTktResponseForm" class="">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @Html.LabelFor(model => model.Description, new { @class = "pull-right" })
+
+                                       
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12" id="example">
+                                        <div class="demo-section wide">
+                                            <div>
+                                                <textarea id="editor" rows="10" cols="30" style="width:100%; height:300px" aria-label="editor"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="spacer4"></div>
+                                <div class="row" style="margin-top:1%;">
+                                    <div class="col-md-2">
+                                        @Html.LabelFor(model => model.TicketAttachments, new { @class = "pull-left" })
+
+                                  
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="file" name="files" id="files" class="cAttachment" style="width: 200px;margin-left:-13%;" multiple />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+
+    }
+</div>
+
+
+@section scripts {
+
+    <script src="~/js/app/services/commonservice.js"></script>
+    <script src="~/js/app/services/support/ticketservice.js"></script>
+    <script src="~/js/app/controllers/support/ticketcontroller.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            TicketController.init();
+
+
+           
+
+
+        });
+
+
+    </script>
+
+}
+

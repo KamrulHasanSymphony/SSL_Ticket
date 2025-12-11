@@ -1,0 +1,657 @@
+﻿@* @model SSL.Sample.SSL.Sample.Models.VendorVm
+ *@
+
+ @{
+    ViewBag.Title = "Vendor Info";
+    Layout = "_Layout";
+}
+@* <script src="~/assets/jquery/jquery-3.7.1.js"></script>
+<script src="~/assets/kendoui2021/kendo/kendo.all.min.js"></script> *@
+ 
+@* <script src="~/assets/js/common.min.js"></script>
+<script src="~/assets/kendo/kendo.all.min.js"></script>
+<script src="~/assets/js/notify.min.js"></script>
+<script src="~/bower_components/jszip/dist/jszip.min.js"></script> *@
+
+
+@* <div class="uk-grid">
+    <div class="uk-width-medium-1-1 uk-margin-small-bottom">
+        <div class="md-card-content">
+            <a class="md-btn md-btn-primary md-btn-wave-light md-btn-icon waves-effect waves-button waves-light" id="btnNew" href="javascript:void(0)"><i class="uk-icon-plus"></i>New</a>
+            <a class="md-btn md-btn-primary md-btn-wave-light md-btn-icon waves-effect waves-button waves-light displayNone" id="btnIndex" href="javascript:void(0)"><i class="uk-icon-list"></i>Index</a>
+            <a class="md-btn md-btn-primary md-btn-wave-light md-btn-icon waves-effect waves-button waves-light displayNone" id="btnSave" href="javascript:void(0)"><i class="uk-icon-upload"></i>Save</a>
+            <a class="md-btn md-btn-primary md-btn-wave-light md-btn-icon waves-effect waves-button waves-light displayNone" id="btnUpdate" href="javascript:void(0)"><i class="uk-icon-upload"></i>Update</a>
+
+        </div>
+    </div>
+</div> *@
+<div class="headrow bs-example">
+    <div class="panel-body">
+        <div style="display: none" id="formAppend"></div>
+        <button type="button" title="Add New Vendor" id="btnNew" class=" sym-btn-add ">&nbsp;New</button>
+        <button type="button" id="btnIndex" class="displayNone">&nbsp;Index</button>
+    </div>
+</div>
+
+<div class="sapcer4"></div>
+@* <div class="row">
+    <div id="divVendor" class="col-md-6">
+        <div class="bs-example">
+            <div class="well well-sm">Vendor Details</div>
+        </div>
+
+
+
+        <div id="divForm" class="uk-width-medium-1-1 displayNone">
+            <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-medium-1-2 uk-row-first">
+                    <div class="md-card">
+                        <div class="md-card-content">
+                            <h2 class="heading_a uk-margin-medium-bottom">Basic</h2>
+                            <div class="uk-form-row">
+                                <div class="uk-grid" data-uk-grid-margin>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <div class="parsley-row">
+                                            <input type="hidden" id="hdnVendorId" value="0" />
+                                            <input type="hidden" id="hdnBranchId" value="0" />
+                                            <label>Vendor Code<span class="req">*</span></label>
+                                            <input type="text" name="txtVendorCd" required class="md-input label-fixed" id="txtVendorCd" />
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <div class="parsley-row">
+                                            <label>Vendor Name<span class="req">*</span></label>
+                                            <input type="text" class="md-input label-fixed" required id="txtVendorNm" />
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <div class="md-input-wrapper md-input-filled">
+                                            <form class="uk-form-stacked">
+                                                <label class="uk-form-label mrginTopTwo" for="kDrop">Vendor Group</label>
+                                                <input id="kDrop" type="text" class="uk-form-width-large" />
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <div class="uk-input-group parsley-row">
+                                            <span class="uk-input-group-addon"><i class="uk-input-group-icon uk-icon-calendar"></i></span>
+                                            <label for="dtPicker">Start Date</label>
+                                            <input class="md-input" type="text" id="dtPicker" required data-uk-datepicker="{format:'DD-MMM-YYYY'}">
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <div class="uk-width-medium-1-1">
+                                            <label>Vat Registration No</label>
+                                            <input type="text" class="md-input label-fixed" id="txtVtRegNo" />
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-1">
+                                        <div class="uk-width-medium-1-1">
+                                            <label>TIN No</label>
+                                            <input type="text" class="md-input label-fixed" id="txtTinNo" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md-card">
+                        <div class="md-card-content">
+                            <h2 class="heading_a uk-margin-medium-bottom">Business</h2>
+                            <div class="uk-form-row">
+                                <div class="uk-grid" data-uk-grid-margin>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <label>Business Type</label>
+                                        <input type="text" required class="md-input label-fixed" id="txtBstype" />
+                                    </div>
+                                    <div class="uk-width-medium-1-1">
+                                        <div class="uk-width-medium-1-1">
+                                            <label>Business Code</label>
+                                            <input type="text" required class="md-input label-fixed" id="txtBsCode" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-1-2">
+                    <div class="md-card">
+                        <div class="md-card-content">
+                            <h2 class="heading_a uk-margin-medium-bottom">Details</h2>
+                            <div class="uk-form-row">
+                                <div class="uk-grid" data-uk-grid-margin>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <label>Address</label>
+                                        <input type="text" class="md-input label-fixed" id="txtAddress" />
+                                    </div>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <div class="uk-width-medium-1-1">
+                                            <label>City</label>
+                                            <input type="text" class="md-input label-fixed" id="txtCity" />
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <div class="uk-width-medium-1-1">
+                                            <label>Country</label>
+                                            <input type="text" class="md-input label-fixed" id="txtCountry" />
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <div class="uk-width-medium-1-1">
+                                            <label>Email</label>
+                                            <input type="text" class="md-input label-fixed" id="txtEmail" />
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <div class="uk-width-medium-1-1">
+                                            <label>Fax No</label>
+                                            <input type="text" class="md-input label-fixed" id="txtFaxNo" />
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <div class="uk-width-medium-1-1">
+                                            <label>Telephone No</label>
+                                            <input type="text" class="md-input label-fixed" id="txtTPNo" />
+                                        </div>
+                                    </div>
+
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <div class="uk-width-medium-1-1">
+                                            <label>Comments</label>
+                                            <textarea cols="30" rows="2" class="md-input label-fixed autosized" style="overflow-x: hidden; overflow-wrap: break-word; height: 50px;" id="txtComments"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-1 mrginBtmEight">
+                                        <div class="uk-width-medium-1-1">
+                                            <label>Short Name</label>
+                                            <textarea cols="30" rows="2" class="md-input label-fixed autosized" style="overflow-x: hidden; overflow-wrap: break-word; height: 50px;" id="txtSName"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-medium-1-3">
+                                        <input type="checkbox" data-switchery id="chkIsRegister" />
+                                        <label for="chkIsRegister" class="inline-label" id="chkIsRegister">Is Register</label>
+                                    </div>
+                                    <div class="uk-width-medium-1-3">
+                                        <input type="checkbox" data-switchery id="chkIsTurnover" />
+                                        <label for="chkIsTurnover" class="inline-label" id="chkIsTurnover">Is Turnover</label>
+                                    </div>
+                                    <div class="uk-width-medium-1-3">
+                                        <input type="checkbox" data-switchery checked id="chkIsStatus" />
+                                        <label for="chkIsStatus" class="inline-label" id="chkIsStatus">Active Status</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-medium-1-1">
+                    <div class="md-card">
+                        <div class="md-card-content">
+                            <h2 class="heading_a uk-margin-medium-bottom">Contact Person</h2>
+                            <div class="uk-form-row">
+                                <div class="uk-grid" data-uk-grid-margin>
+                                    <div class="uk-width-medium-1-2">
+                                        <label>Contact Person</label>
+                                        <input type="text" class="md-input label-fixed" id="txtConPerson" />
+                                    </div>
+                                    <div class="uk-width-medium-1-2">
+                                        <label>CP Designation</label>
+                                        <input type="text" class="md-input label-fixed" id="txtDesignation" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="uk-form-row">
+                                <div class="uk-grid" data-uk-grid-margin>
+                                    <div class="uk-width-medium-1-2">
+                                        <label>CP Telephone</label>
+                                        <input type="text" class="md-input label-fixed" id="txtTelephone" />
+                                    </div>
+                                    <div class="uk-width-medium-1-2">
+                                        <label>CP Email</label>
+                                        <input type="text" class="md-input label-fixed" id="txtConEmail" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+</div> *@
+<div class="row">
+    <div class="col-md-12 col-xs-12">
+        <div class="bs-example">
+            <div class="well well-sm">
+                Vendor Informations
+            </div>
+            <div class="panel-body">
+                <div id="kGrid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <div id="divGrid" class="col-md-12">
+    <div class="uk-grid" data-uk-grid-margin>
+        <div class="uk-width-medium-1-1">
+            <div class="md-card">
+                <div class="md-card-content">
+                    <div id="kGrid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> *@
+
+<script>
+    
+    $(document).ready(function () {
+        $("#btnNew").click(function () {
+            $("#divGrid").hide();
+            ClearForm();
+            $("#divForm").show();
+            $("#btnSave").removeClass("displayNone");            
+            $("#btnIndex").removeClass("displayNone");
+        });
+        $("#btnIndex").click(function () {
+            $("#divGrid").show();
+            $("#divForm").hide();
+            $("#btnSave").addClass("displayNone");
+            $("#btnUpdate").addClass("displayNone");
+            $("#btnIndex").addClass("displayNone");
+            //fetchDataForKendoGrid();
+
+        });
+        $("#btnSave").click(function () {
+            //CheckValidation();
+            SaveVendor();
+            $("#divGrid").show();
+            $("#divForm").hide();
+            $("#btnIndex").removeClass("displayNone");
+            $("#btnSave").addClass("displayNone");
+            $("#btnUpdate").addClass("displayNone");
+            //fetchDataForKendoGrid();
+
+        });
+        $("#btnUpdate").click(function () {
+            $("#divGrid").show();
+            $("#divForm").hide();
+            UpdateVendor();
+            $("#btnIndex").removeClass("displayNone");
+            $("#btnSave").addClass("displayNone");
+            $("#btnUpdate").addClass("displayNone");
+            // $("#btnUpdate").addClass("displayNone");
+        });
+
+        function ClearForm() {
+            $("#txtVendorNm").val("");
+            $("#txtVendorCd").val("");
+            $("#kDrop").data("kendoDropDownList").value("");
+            $("#dtPicker").val("");
+            $("#txtVtRegNo").val("");
+            $("#txtTinNo").val("");
+            $("#txtBstype").val("");
+            $("#txtBsCode").val("");
+            $("#txtAddress").val("");
+            $("#txtCity").val("");
+            $("#txtCountry").val("");
+            $("#txtEmail").val("");
+            $("#txtFaxNo").val("");
+            $("#txtTPNo").val("");
+            $("#txtComments").val("");
+            $("#txtSName").val("");
+            $("#txtConPerson").val("");
+            $("#txtDesignation").val("");
+            $("#txtTelephone").val("");
+            $("#txtConEmail").val("");
+
+            var isReg = $("#chkIsRegister").prop('checked');
+            if (isReg == true) {
+                $("#chkIsRegister").prop('checked', false);
+            }
+            var isTurn = $("#chkIsTurnover").prop('checked');
+            if (isTurn == true) {
+                $("#chkIsTurnover").prop('checked', false);
+            }
+            var activeSts = $("#chkIsStatus").prop('checked');
+            if (activeSts == false) {
+                $("#chkIsStatus").prop('checked', true);
+            }
+
+        };
+        function CheckValidation() {
+
+            var res = true;
+
+            var vendorCode = $("#txtVendorCd").val();
+            if (vendorCode === "" || vendorCode === undefined) {
+                AjaxManager.NotifyMsg("txtVendorCd", "error", "right", 3000, "Required!");
+                res = false;
+            }
+
+            var vendorName = $("#txtVendorNm").val();
+            if (vendorName === "" || vendorName === undefined) {
+                AjaxManager.NotifyMsg("txtVendorNm", "error", "right", 3000, "Required!");
+                res = false;
+            }
+        }
+        function SaveVendor() {
+
+            var objVendor = CreateVendorObject();
+
+            $.ajax({
+                url: '/Sample/Sample/SaveVendor', // Adjust the URL according to your routing
+                method: 'post',
+                data: objVendor,
+                success: function () {
+                    alert("Save Succesfully!")
+                },
+                error: function (xhr, status, error) {
+                    alert("Save Unsuccesfully!")
+                }
+            });
+
+        }
+        function UpdateVendor() {            
+            var objVendor = CreateVendorObject();
+
+            $.ajax({
+                url: '/Sample/UpdateVendor', // Adjust the URL according to your routing
+                method: 'post',
+                data: objVendor,
+                success: function () {
+                    alert("Update Succesfully!")
+                },
+                error: function (xhr, status, error) {
+                    alert("Update Unsuccesfully!")
+                }
+
+            });
+
+        }
+
+        //Drop Down
+        var data = [
+            { text: "One", value: "1" },
+            { text: "Two", value: "2" },
+            { text: "Three", value: "3" }
+        ];
+
+        $("#kDrop").kendoDropDownList({
+            dataTextField: "text",
+            dataValueField: "value",
+            dataSource: data,
+            filter: "contains",
+            optionLabel: 'Please select vendor...',
+            index: 0
+        });
+    })
+
+    //Kendo Grid
+
+    var gridDataSource = new kendo.data.DataSource({
+        type: "json",
+        serverPaging: true,
+        serverSorting: true,
+        serverFiltering: true,
+        allowUnsort: true,
+        autoSync: true,
+        pageSize: 10,
+        transport: {
+            read: {
+                url: "/Sample/GetAllTestData",
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json;",
+                cache: false,
+                async: false
+            },
+            parameterMap: function (options) {
+                return JSON.stringify(options);
+            }
+        },
+        batch: true,
+        schema: {
+            model: {
+                fields: {
+                    VendorCode: { type: "string" },
+                    VendorName: { type: "string" },
+                    VendorGroupName: { type: "string" },
+                    StartDateTime: { type: "date" },
+                    Address1: { type: "string" },
+                    ActiveStatus: { type: "string" }
+                }
+            },
+            data: "Items", total: "TotalCount"
+        }
+    });
+
+    $("#kGrid").kendoGrid({
+        dataSource: [
+            { VendorID: 7, VendorCode: "Rony", VendorName: "Rakib" },
+            { VendorID: 8, VendorCode: "Rony", VendorName: "Rakib" },
+            { VendorID: 9, VendorCode: "Rony", VendorName: "Rakib" },
+            { VendorID: 11, VendorCode: "Test", VendorName: "Test Name" }
+        ],
+
+        schema: {
+            model: {
+                id: "VendorID",
+                fields: {
+
+                }
+            }
+        },
+
+        //dataSource: gridDataSource(),
+        pageable: {
+            refresh: true,
+            serverPaging: true,
+            serverFiltering: true,
+            serverSorting: true,
+            pageSizes: [10, 20, 50, 100]
+        },
+        scrollable: true,
+        filterable: {
+            extra: true,
+            operators: {
+                string: {
+                    startswith: "Starts with",
+                    endswith: "Ends with",
+                    contains: "Contains",
+                    doesnotcontain: "Does not contain",
+                    eq: "Is equal to",
+                    neq: "Is not equal to",
+                    gt: "Is greater then",
+                    lt: "Is less then"
+                }
+            }
+        },
+        sortable: true,
+        persistSelection: true,
+        resizable: true,
+        reorderable: true,
+        groupable: true,
+        toolbar: ["excel", "pdf", "search"],
+        search: {
+            fields: ["VendorCode", "VendorName"]
+        },
+        columns: [
+            {
+                command: [{
+                    name: "edit", text: "Edit", iconClass: "k-icon k-i-edit", className: "md-btn md-btn-flat md-btn-flat-primary", click: ClickEventForEditButton
+                }, {
+                    name: "delete", text: "Delete", iconClass: "k-icon k-i-delete", className: "md-btn md-btn-flat md-btn-flat-danger", click: ClickEventForDeleteButton
+                }], title: "&nbsp;", width: 120, title: "Action"
+            },
+            { field: "VendorID", hidden: true, width: 150 },
+            {
+                field: "VendorName", title: "Vendor Name", sortable: true, width: 200
+            },
+            {
+                field: "VendorCode", title: "Vendor Code", sortable: true, width: 150
+            }
+
+
+        ],
+        editable: false,
+        selectable: "row",
+        navigatable: true
+
+    });
+
+    function onSuccess(jsonData) {
+        var msg = "";
+        if (VendorObj.VendorID == 0) {
+            msg = "Save Successfully";
+        } else {
+            msg = "Update Successfully";
+        }
+        if (jsonData == "Success") {
+            AjaxManager.MsgBox('success', 'center', 'Success:', msg,
+                [{
+                    addClass: 'btn btn-primary', text: 'Ok', onClick: function ($noty) {
+                        $noty.close();
+                        $("#kGrid").data("kendoGrid").dataSource.read();
+                        ClearForm();
+                    }
+                }]);
+        }
+        else {
+            AjaxManager.MsgBox('error', 'center', 'Error1', jsonData,
+                [{
+                    addClass: 'btn btn-primary', text: 'Ok', onClick: function ($noty) {
+                        $noty.close();
+                    }
+                }]);
+        }
+    }
+    function onFailed(error) {
+        AjaxManager.MsgBox('error', 'center', 'Error', error.statusText,
+            [{
+                addClass: 'btn btn-primary', text: 'Ok', onClick: function ($noty) {
+                    $noty.close();
+                }
+            }]);
+    }
+
+    function CreateVendorObject() {
+        var obj = new Object();
+        obj.VendorID = $("#hdnVendorId").val();
+        //obj.BranchId = $("#hdnBranchId").val();
+        obj.VendorCode = $("#txtVendorCd").val();
+        obj.VendorName = $("#txtVendorNm").val();
+        // obj.VendorGroupID = $("#kDrop").data("kendoDropDownList").value();
+        // obj.Address1 = $("#txtAddress").val();
+        // obj.City = $("#txtAddress").val();
+        // obj.TelephoneNo = $("#txtTPNo").val();
+        // obj.FaxNo = $("#txtFaxNo").val();
+        // obj.Email = $("#txtEmail").val();
+        // obj.StartDateTime = $("#dtPicker").val();
+        // obj.ContactPerson = $("#txtConPerson").val();
+        // obj.ContactPersonDesignation = $("#txtDesignation").val();
+        // obj.ContactPersonTelephone = $("#txtTelephone").val();
+        // obj.VATRegistrationNo = $("#txtVtRegNo").val();
+        // obj.TINNo = $("#txtTinNo").val();
+        // obj.Comments = $("#txtComments").val();
+        // obj.Country = $("#txtCountry").val();
+        // obj.VDSPercent = 0;
+        // obj.BusinessType = $("#txtBstype").val();
+        // obj.BusinessCode = $("#txtBsCode").val();
+        // obj.ShortName = $("#txtSName").val();
+        // obj.NIDNo = 0;
+
+        // var activeSts = $("#chkIsStatus").prop('checked');
+        // if (activeSts == false) {
+        //     obj.ActiveStatus = "N";
+        // }
+        // else {
+        //     obj.ActiveStatus = "Y";
+        // }
+
+        // var isReg = $("#chkIsRegister").prop('checked');
+        // if (isReg == true) {
+        //     obj.IsRegister = "Y";
+        // }
+        // else {
+        //     obj.IsRegister = "N";
+        // }
+        // var isTurn = $("#chkIsTurnover").prop('checked');
+        // if (isTurn == true) {
+        //     obj.IsTurnover = "Y";
+        // }
+        // else {
+        //     obj.IsTurnover = "N";
+        // }
+        return obj;
+    }
+
+    function ClickEventForEditButton(e) {
+        $("#btnSave").hide();
+        $("#btnUpdate").removeClass("displayNone");
+        $("#btnIndex").removeClass("displayNone");
+        e.preventDefault();
+        var grid = $("#kGrid").data("kendoGrid");
+        var tr = $(e.currentTarget).closest("tr");
+        var selectedItem = this.dataItem(tr);
+        grid.select(tr);
+        if (selectedItem != null) {
+            $("#divGrid").hide();
+            $("#divForm").show();            
+        }
+        FillVendorForm(selectedItem);
+    }
+
+    function ClickEventForDeleteButton(e){
+        e.preventDefault();
+        var grid = $("#kGrid").data("kendoGrid");
+        var tr = $(e.currentTarget).closest("tr");
+        var selectedItem = this.dataItem(tr);
+        grid.select(tr);
+
+        if (selectedItem != null) {
+            debugger;
+            var vendorId = selectedItem.VendorID;
+            $.ajax({
+                
+                url: '/Sample/Sample/DeleteVendor' + "?vendorId=" + vendorId, // Adjust the URL according to your routing
+
+                method: 'post',
+                data: vendorId,
+
+                success: function () {
+                    alert("Deleted Succesfully!")
+                },
+                error: function (xhr, status, error) {
+                    alert("Deleted Unsuccesfully!")
+                }
+            })
+        }
+    }
+
+    function FillVendorForm(obj) {
+        $("#hdnVendorId").val(obj.VendorID);
+        $("#txtVendorCd").val(obj.VendorCode);
+        $("#txtVendorNm").val(obj.VendorName);
+    }
+</script>
+
+<style>
+    .uk-form-width-large {
+        width: 100%;
+    }
+
+    .k-pager-wrap {
+        height: 49px;
+    }
+</style>

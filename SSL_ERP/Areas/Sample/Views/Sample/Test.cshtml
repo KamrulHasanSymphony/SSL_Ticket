@@ -1,0 +1,869 @@
+﻿@model SSL.Sample.SSL.Sample.Models.VendorVm
+@{
+    ViewBag.Title = "Vendor Info";
+    Layout = "_Layout";
+}
+
+<div class="sapcer4"></div>
+<div class="container-fluid">
+    <div style="display: none" id="formAppend"></div>
+    <button type="button" title="Add New Vendor" id="btnNew" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;New</button>
+    <button type="button" id="btnIndex" class="btn btn-primary" style="display: none"><i class="fa fa-th" aria-hidden="true"></i>&nbsp;Index</button>
+    <button type="submit" id="btnSave" class="btn btn-primary" style="display: none"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Save</button>
+    <button type="button" id="btnUpdate" class="btn btn-primary" style="display: none"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Update</button>
+</div>
+<div class="sapcer4"></div>
+<section class="content displayNone" id="divForm">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Basic</h3>
+                            </div>
+                            <form>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input type="hidden" id="hdnVendorId" value="0" />
+                                        <input type="hidden" id="hdnBranchId" value="0" />
+                                        <div class="row kRow">
+                                            <div class="kLabel">
+                                                @Html.LabelFor(model => model.VendorCode)
+                                            </div>
+                                            <div class="kInput">
+                                                @Html.TextBoxFor(model => model.VendorCode, new { @class = "KTextBox required"})
+                                            </div>
+
+                                        </div>
+                                        <div class="row kRow">
+                                            <div class="kLabel">
+                                                @Html.LabelFor(model => model.VendorName)
+                                            </div>
+                                            <div class="kInput">
+                                                @Html.TextBoxFor(model => model.VendorName, new { @class = "KTextBox required"})
+                                            </div>
+
+                                        </div>
+                                        <div class="row kRow">
+                                            <div class="kLabel">
+                                                @Html.LabelFor(model => model.StartDateTime)
+                                            </div>
+                                            <div class="kInput">
+                                                @Html.TextBoxFor(model => model.StartDateTime, new {@class = "kDtPicker required"})
+                                            </div>
+
+                                        </div>
+                                        <div class="row kRow">
+                                            <div class="kLabel">
+                                                @Html.LabelFor(model => model.StartDateTo)
+                                            </div>
+                                            <div class="kInput">
+                                                @Html.TextBoxFor(model => model.StartDateTo, new {@class = "kDtPicker required"})
+                                            </div>
+
+                                        </div>
+                                        <div class="row kRow">
+                                            <div class="kLabel">
+                                                @Html.LabelFor(model => model.VendorGroupID)
+                                            </div>
+                                            <div class="kInput">
+                                                @Html.TextBoxFor(model => model.VendorGroupID, new { @class = "KDropDown required", data_Url="/Sample/VendorName"})
+                                            </div>
+                                        </div>
+                                        <div class="row kRow">
+                                            <div class="kLabel">
+                                                @Html.LabelFor(model => model.CountryName)
+                                            </div>
+                                            <div class="kInput">
+                                                @Html.TextBoxFor(model => model.CountryName, new {@class = "KCountryDropDown", data_Url="/Sample/Country?Id=" + "1",disabled = "disabled"})
+                                            </div>
+                                        </div>
+                                        <div class="row kRow">
+                                            <div class="kLabel">
+                                                @Html.LabelFor(model => model.VATRegistrationNo)
+                                            </div>
+                                            <div class="kInput">
+                                                @Html.TextAreaFor(model => model.VATRegistrationNo, new { @class = "kTextArea"})
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row kRow">
+                                        <div class="kLabel">
+                                            @Html.LabelFor(model => model.VATRegistrationNo)
+                                        </div>
+                                        @* <label for="txtVtRegNo">Reg. No</label> *@
+                                        <div class="kInput">
+                                            @*@Html.TextBoxFor(model => model.VATRegistrationNo, new {@class = "KNumericTextBox"})*@
+                                            @Html.TextBoxFor(model => model.VATRegistrationNo, new {@class = "KNumericTextBox"})
+                                        </div>
+                                    </div>
+
+                                    <div class="row kRow">
+
+                                        <div class="kLabel">
+                                            @Html.LabelFor(model => model.IsActive)
+                                        </div>
+                                        <div class="kInput">
+                                            <input type="checkbox" class="form-check-input" id="chkIsStatus" style="width:10%;height:50%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer4"></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Business</h3>
+                            </div>
+                            <form>
+                                <div class="card-body">
+
+                                    <div class="form-group">
+                                        <div class="row kRow">
+                                            <div class="kLabel">
+                                                @Html.LabelFor(model => model.BusinessType)
+                                            </div>
+                                            <div class="kInput">
+                                                @Html.TextBoxFor(model => model.BusinessType, new {@class = "KTextBox"})
+                                            </div>
+
+                                        </div>
+                                        <div class="row kRow">
+                                            <div class="kLabel">
+                                                @Html.LabelFor(model => model.BusinessCode)
+                                            </div>
+                                            <div class="kInput">
+                                                @Html.TextBoxFor(model => model.BusinessCode, new {@class = "KTextBox"})
+                                            </div>
+
+                                        </div>
+                                        @*<label for="txtBstype">Business Type</label>
+                                        *@
+                                        @* <input type="text" name="txtBstype" class="KTextBox" id="txtBstype" /> *@
+
+                                        @* <label for="txtBsCode">Business Code</label> *@
+                                        @* <input type="text" class="KTextBox" id="txtBsCode" /> *@
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Details</h3>
+                    </div>
+                    <form>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="row kRow">
+                                    <div class="kLabel">
+                                        @Html.LabelFor(model => model.Address1)
+                                    </div>
+                                    <div class="kInput">
+                                        @Html.TextBoxFor(model => model.Address1, new {@class = "KTextBox"})
+                                    </div>
+
+                                </div>
+                                <div class="row kRow">
+                                    <div class="kLabel">
+                                        @Html.LabelFor(model => model.City)
+                                    </div>
+                                    <div class="kInput">
+                                        @Html.TextBoxFor(model => model.City, new {@class = "KTextBox"})
+                                    </div>
+
+                                </div>
+                                <div class="row kRow">
+                                    <div class="kLabel">
+                                        @Html.LabelFor(model => model.Country)
+                                    </div>
+                                    <div class="kInput">
+                                        @Html.TextBoxFor(model => model.Country, new {@class = "KTextBox"})
+                                    </div>
+
+                                </div>
+                                <div class="row kRow">
+                                    <div class="kLabel">
+                                        @Html.LabelFor(model => model.Email)
+                                    </div>
+                                    <div class="kInput">
+                                        @Html.TextBoxFor(model => model.Email, new {@class = "KTextBox"})
+                                    </div>
+
+                                </div>
+
+                                <div class="row kRow">
+                                    <div class="kLabel">
+                                        @Html.LabelFor(model => model.FaxNo)
+                                    </div>
+                                    <div class="kInput">
+                                        @Html.TextBoxFor(model => model.FaxNo, new {@class = "KTextBox"})
+                                    </div>
+
+                                </div>
+
+                                <div class="row kRow">
+                                    <div class="kLabel">
+                                        @Html.LabelFor(model => model.TelephoneNo)
+                                    </div>
+                                    <div class="kInput">
+                                        @Html.TextBoxFor(model => model.TelephoneNo, new {@class = "KTextBox"})
+                                    </div>
+
+                                </div>
+                                <div class="row kRow">
+                                    <div class="kLabel">
+                                        @Html.LabelFor(model => model.Comments)
+                                    </div>
+                                    <div class="kInput">
+                                        @Html.TextAreaFor(model => model.Comments, new { @class = "kTextArea"})
+                                    </div>
+
+                                </div>
+                                <div class="row kRow">
+                                    <div class="kLabel">
+                                        @Html.LabelFor(model => model.ShortName)
+                                    </div>
+                                    <div class="kInput">
+                                        @Html.TextAreaFor(model => model.ShortName, new { @class = "kTextArea"})
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @* <div class="row">
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Contact Person</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <div class="row kRow">
+                                        <div class="kLabel">
+                                            @Html.LabelFor(model => model.ContactPerson)
+                                        </div>
+                                        <div class="kInput">
+                                            @Html.TextBoxFor(model => model.ContactPerson, new {@class = "KTextBox"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row kRow">
+
+                                        <div class="kLabel">
+                                            @Html.LabelFor(model => model.ContactPersonDesignation)
+                                        </div>
+                                        <div class="kInput">
+                                            @Html.TextBoxFor(model => model.ContactPersonDesignation, new {@class = "KTextBox"})
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <div class="row kRow">
+                                        <div class="kLabel">
+                                            @Html.LabelFor(model => model.TelephoneNo)
+                                        </div>
+                                        <div class="kInput">
+                                            @Html.TextBoxFor(model => model.TelephoneNo, new {@class = "KTextBox"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row kRow">
+                                        <div class="kLabel">
+                                            @Html.LabelFor(model => model.ContactPersonEmail)
+                                        </div>
+                                        <div class="kInput">
+                                            @Html.TextBoxFor(model => model.ContactPersonEmail, new {@class = "KTextBox"})
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> *@
+    </div>
+</section>
+<!-- Grid -->
+<div class="container-fluid" id="divGrid">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Vendor Informations</h3>
+        </div>
+        <div id="kGrid">
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        //Dropdown
+        $("#CountryName").kendoDropDownList({
+            dataTextField: "country",
+            dataValueField: "vendorGroupID",
+            dataSource: [],
+            filter: "contains",
+            optionLabel: 'Please select country...',
+            index: 0
+        });
+
+        var data_Url = $("#VendorGroupID").data('url');
+        var vendorData = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: data_Url,
+                    dataType: "json"
+                }
+            }
+        });
+        $(".KDropDown").kendoDropDownList({
+            dataTextField: "vendorGroupName",
+            dataValueField: "vendorGroupID",
+            dataSource: vendorData,
+            filter: "contains",
+            optionLabel: 'Please select vendor...',
+            index: 0,
+            change: function (e) {
+                var selectedVendorID = this.value();
+                var countryData = GetCountry(selectedVendorID);
+
+                var countryDropdown = $("#CountryName").data("kendoDropDownList");
+                if (countryDropdown) {
+                    countryDropdown.value(""); // Clear selected value
+                    countryDropdown.text(""); // Clear selected text
+                    countryDropdown.setDataSource(countryData); // Set new data source
+                    debugger;
+                    countryDropdown.value(countryData[0].vendorGroupID); // Clear selected value
+                    countryDropdown.text(countryData[0].country);
+                }
+            }
+        });
+
+        var country_data_Url = $("#CountryName").data('url');
+        function GetCountry() {
+            var objCategory = "";
+            var jsonParam = "";
+            var serviceUrl = country_data_Url;
+            GetJsonResult(serviceUrl, jsonParam, false, false, onSuccess, onFailed);
+            function onSuccess(jsonData) {
+                objCategory = jsonData;
+            }
+            function onFailed(error) {
+                window.alert(error.statusText);
+            }
+            return objCategory;
+        }
+        function GetJsonResult(serviceUrl, jsonParams, isAsync, isCache, successCallback, errorCallback) {
+            $.ajax({
+                type: "GET",
+                async: isAsync,
+                cache: isCache,
+                url: serviceUrl,
+                data: jsonParams,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: successCallback,
+                error: errorCallback
+            });
+        }
+        $(".k-item").each(function () {
+            $(this).css("font-size", "1.25em");
+        });
+
+        //Place-Holder;
+        $('.kLabel').each(function () {
+            var label = $(this).text().trim();
+            var input = $(this).next('.kInput').find('input, textarea, select');
+            input.attr('placeholder', label);
+        });
+
+
+        //Date Time Range picker
+        function startChange() {
+            var startDate = start.value(),
+                endDate = end.value();
+
+            if (startDate) {
+                startDate = new Date(startDate);
+                startDate.setDate(startDate.getDate());
+                end.min(startDate);
+            } else if (endDate) {
+                start.max(new Date(endDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+        function endChange() {
+            var endDate = end.value(),
+                startDate = start.value();
+
+            if (endDate) {
+                endDate = new Date(endDate);
+                endDate.setDate(endDate.getDate());
+                start.max(endDate);
+            } else if (startDate) {
+                end.min(new Date(startDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+        var start = $("#StartDateTime").kendoDateTimePicker({
+            dateInput: true,
+            change: startChange,
+            mask: '00.00.0000 00:00',
+            format: "dd.MM.yyyy HH:mm"
+            //format: "dd.MM.yyyy HH:mm"
+        }).data("kendoDateTimePicker");
+        var end = $("#StartDateTo").kendoDateTimePicker({
+            change: endChange,
+            dateInput: true,
+            mask: '00.00.0000 00:00',
+            format: "dd.MM.yyyy HH:mm"
+        }).data("kendoDateTimePicker");
+        start.max(end.value());
+        end.min(start.value());
+        $(".kDtPicker").each(function () {
+            $(this).css("width", "100%");
+        });
+
+        //Red Underline for validation
+        $('input.k-widget.k-datepicker.dtPicker.required').removeClass('required');
+        $('k-widget k-datepicker dtPicker required').removeClass('required');
+        $('input.required').each(function () {
+            $(this).css('border-bottom', '1px solid red');
+        });
+        $('.required>.k-dropdown-wrap > .k-input').each(function () {
+            $(this).css('border-bottom', '1px solid red');
+        });
+
+        //Text Area
+        $(".kTextArea").each(function () {
+            $(this).css("width", "100%");
+            $(this).css("height", "70px");
+            $(this).css("border-color", "#a3d0e4");
+            $(this).css("border-radius", "3px");
+        });
+
+        //Text Box
+        $(".KTextBox").each(function () {
+            $(this).addClass("k-textbox");
+            $(this).css("width", "100%");
+
+        });
+
+        //Numeric TExt Box
+        $(".KNumericTextBox").kendoNumericTextBox({
+            min: 0,
+            //max: 100,
+            value: 0,
+            step: 1,
+            format: "#.00 kg",
+            decimals: 2
+        });
+        $(".KNumericTextBox").each(function () {
+            $(this).css("width", "100%");
+
+        });
+
+        //Dropdown Width
+        $(".KDropDown").each(function () {
+            $(this).css("width", "100%");
+        });
+        $(".KCountryDropDown").each(function () {
+            $(this).css("width", "100%");
+        });
+
+        $(".kLabel").each(function () {
+            $(this).addClass("col-md-4");
+        });
+        // $(".kLabel6").each(function () {
+        //     $(this).addClass("col-md-6");
+        // });
+        $(".kInput").each(function () {
+            $(this).addClass("col-md-8");
+        });
+        $(".kRow").each(function () {
+            $(this).css("margin-bottom", "5px");
+            $(this).css("margin-top", "5px");
+        });
+        $(".body").each(function () {
+            $(this).css("margin-bottom", "5px");
+            $(this).css("margin-top", "5px");
+        });
+        $('body').css({
+            'font-size': '1.25em ! important'
+        });
+
+        //Grid
+        var gridDataSource = new kendo.data.DataSource({
+            type: "json",
+            serverPaging: true,
+            serverSorting: true,
+            serverFiltering: true,
+            allowUnsort: true,
+            autoSync: true,
+            pageSize: 10,
+            transport: {
+                read: {
+                    url: "/Sample/GetAllTestData",
+                    type: "POST",
+                    dataType: "json",
+                    cache: false
+                },
+                parameterMap: function (options) {
+                    return options;
+                }
+            },
+            batch: true,
+            schema: {
+                data: "items",
+                total: "totalCount",
+                model: {
+                    id: "vendorID",
+                    fields: {
+                        vendorID: { type: "number" },
+                        vendorName: { type: "string" },
+                        vendorCode: { type: "string" }
+                    }
+                }
+            }
+        });
+        $("#kGrid").kendoGrid({
+
+            dataSource: gridDataSource,
+            pageable: {
+                refresh: true,
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true,
+                pageSizes: [10, 20, 50, 100]
+            },
+            scrollable: true,
+            filterable: {
+                extra: true,
+                operators: {
+                    string: {
+                        startswith: "Starts with",
+                        endswith: "Ends with",
+                        contains: "Contains",
+                        doesnotcontain: "Does not contain",
+                        eq: "Is equal to",
+                        neq: "Is not equal to",
+                        gt: "Is greater then",
+                        lt: "Is less then"
+                    }
+                }
+            },
+            sortable: true,
+            persistSelection: false,
+            resizable: true,
+            reorderable: true,
+            groupable: true,
+            toolbar: ["excel", "pdf", "search"],
+            search: {
+                fields: ["vendorCode", "VendorName"]
+            },
+            columns: [
+                {
+                    command: [{
+                        name: "edit", text: "Edit", iconClass: "k-icon k-i-edit", className: "md-btn md-btn-flat md-btn-flat-primary", click: ClickEventForEditButton
+                    }, {
+                        name: "delete", text: "Delete", iconClass: "k-icon k-i-delete", className: "md-btn md-btn-flat md-btn-flat-danger", click: ClickEventForDeleteButton
+                    }], title: "&nbsp;", width: 120, title: "Action"
+                },
+                { field: "vendorID", hidden: true, width: 150 },
+                {
+                    field: "vendorName", title: "Vendor Name", sortable: true, width: 200
+                },
+                {
+                    field: "vendorCode", title: "Vendor Code", sortable: true, width: 150
+                }
+
+
+            ],
+            editable: false,
+            selectable: "row",
+            navigatable: true
+
+        });
+
+        $("#btnNew").click(function () {
+            $("#divGrid").hide();
+            ClearForm();
+            $("#divForm").show();
+            $("#btnNew").hide();
+            $("#btnUpdate").hide();
+            $("#btnSave").show();
+            $("#btnIndex").show();
+        });
+        $("#btnIndex").click(function () {
+            $("#divGrid").show();
+            $("#divForm").hide();
+            $("#btnSave").hide();
+            $("#btnNew").show();
+            $("#btnIndex").hide();
+
+        });
+        $("#btnSave").click(function () {
+            //CheckValidation();
+            SaveVendor();
+            $("#divGrid").show();
+            $("#btnIndex").hide();
+            $("#divForm").hide();
+            $("#btnSave").hide();
+            $("#btnNew").show();
+            //fetchDataForKendoGrid();
+        });
+        $("#btnUpdate").click(function () {
+            $("#divGrid").show();
+            $("#divForm").hide();
+            UpdateVendor();
+            $("#btnIndex").show();
+            $("#btnSave").hide();
+            $("#btnUpdate").hide;
+        });
+
+        function ClearForm() {
+            // $("#txtVendorNm").val("");
+            // $("#txtVendorCd").val("");
+            // $("#kDrop").data("kendoDropDownList").value("");
+            // $("#dtPicker").val("");
+            // $("#txtVtRegNo").val("");
+            // $("#txtTinNo").val("");
+            // $("#txtBstype").val("");
+            // $("#txtBsCode").val("");
+            // $("#txtAddress").val("");
+            // $("#txtCity").val("");
+            // $("#txtCountry").val("");
+            // $("#txtEmail").val("");
+            // $("#txtFaxNo").val("");
+            // $("#txtTPNo").val("");
+            // $("#txtComments").val("");
+            // $("#txtSName").val("");
+            // $("#txtConPerson").val("");
+            // $("#txtDesignation").val("");
+            // $("#txtTelephone").val("");
+            // $("#txtConEmail").val("");
+
+            // var isReg = $("#chkIsRegister").prop('checked');
+            // if (isReg == true) {
+            //     $("#chkIsRegister").prop('checked', false);
+            // }
+            // var isTurn = $("#chkIsTurnover").prop('checked');
+            // if (isTurn == true) {
+            //     $("#chkIsTurnover").prop('checked', false);
+            // }
+            // var activeSts = $("#chkIsStatus").prop('checked');
+            // if (activeSts == false) {
+            //     $("#chkIsStatus").prop('checked', true);
+            // }
+
+        };
+        function CheckValidation() {
+
+            var res = true;
+
+            var vendorCode = $("#txtVendorCd").val();
+            if (vendorCode === "" || vendorCode === undefined) {
+                AjaxManager.NotifyMsg("txtVendorCd", "error", "right", 3000, "Required!");
+                res = false;
+            }
+
+            var vendorName = $("#txtVendorNm").val();
+            if (vendorName === "" || vendorName === undefined) {
+                AjaxManager.NotifyMsg("txtVendorNm", "error", "right", 3000, "Required!");
+                res = false;
+            }
+        }
+        function SaveVendor() {
+
+            var objVendor = CreateVendorObject();
+
+            $.ajax({
+                url: '/Sample/Sample/SaveVendor', // Adjust the URL according to your routing
+                method: 'post',
+                data: objVendor,
+                success: function () {
+                    var grid = $("#kGrid").data("kendoGrid");
+                    grid.dataSource.read();
+                    alert("Save Succesfully!")
+                },
+                error: function (xhr, status, error) {
+                    alert("Save Unsuccesfully!")
+                }
+            });
+
+        }
+        function UpdateVendor() {
+            var objVendor = CreateVendorUpObject();
+
+            $.ajax({
+                url: '/Sample/UpdateVendor', // Adjust the URL according to your routing
+                method: 'post',
+                data: objVendor,
+                success: function () {
+                    var grid = $("#kGrid").data("kendoGrid");
+                    grid.dataSource.read();
+                    alert("Update Succesfully!")
+                },
+                error: function (xhr, status, error) {
+                    alert("Update Unsuccesfully!")
+                }
+
+            });
+
+        }
+
+    })
+
+    function CreateVendorObject() {
+        var obj = new Object();
+        obj.VendorID = $("#hdnVendorId").val();
+        //obj.BranchId = $("#hdnBranchId").val();
+        obj.VendorCode = $("#txtVendorCd").val();
+        obj.VendorName = $("#txtVendorNm").val();
+        // obj.VendorGroupID = $("#kDrop").data("kendoDropDownList").value();
+        // obj.Address1 = $("#txtAddress").val();
+        // obj.City = $("#txtAddress").val();
+        // obj.TelephoneNo = $("#txtTPNo").val();
+        // obj.FaxNo = $("#txtFaxNo").val();
+        // obj.Email = $("#txtEmail").val();
+        // obj.StartDateTime = $("#dtPicker").val();
+        // obj.ContactPerson = $("#txtConPerson").val();
+        // obj.ContactPersonDesignation = $("#txtDesignation").val();
+        // obj.ContactPersonTelephone = $("#txtTelephone").val();
+        // obj.VATRegistrationNo = $("#txtVtRegNo").val();
+        // obj.TINNo = $("#txtTinNo").val();
+        // obj.Comments = $("#txtComments").val();
+        // obj.Country = $("#txtCountry").val();
+        // obj.VDSPercent = 0;
+        // obj.BusinessType = $("#txtBstype").val();
+        // obj.BusinessCode = $("#txtBsCode").val();
+        // obj.ShortName = $("#txtSName").val();
+        // obj.NIDNo = 0;
+
+        // var activeSts = $("#chkIsStatus").prop('checked');
+        // if (activeSts == false) {
+        //     obj.ActiveStatus = "N";
+        // }
+        // else {
+        //     obj.ActiveStatus = "Y";
+        // }
+
+        // var isReg = $("#chkIsRegister").prop('checked');
+        // if (isReg == true) {
+        //     obj.IsRegister = "Y";
+        // }
+        // else {
+        //     obj.IsRegister = "N";
+        // }
+        // var isTurn = $("#chkIsTurnover").prop('checked');
+        // if (isTurn == true) {
+        //     obj.IsTurnover = "Y";
+        // }
+        // else {
+        //     obj.IsTurnover = "N";
+        // }
+        return obj;
+    }
+    function CreateVendorUpObject() {
+        var obj = new Object();
+        obj.vendorID = $("#hdnVendorId").val();
+        //obj.BranchId = $("#hdnBranchId").val();
+        obj.vendorCode = $("#txtVendorCd").val();
+        obj.vendorName = $("#txtVendorNm").val();
+
+        return obj;
+    }
+    function ClickEventForEditButton(e) {
+        $("#btnSave").hide();
+        $("#btnUpdate").show();
+        $("#btnIndex").show();
+        e.preventDefault();
+        var grid = $("#kGrid").data("kendoGrid");
+        var tr = $(e.currentTarget).closest("tr");
+        var selectedItem = this.dataItem(tr);
+        grid.select(tr);
+        if (selectedItem != null) {
+            $("#divGrid").hide();
+            $("#divForm").show();
+        }
+        FillVendorForm(selectedItem);
+    }
+    function ClickEventForDeleteButton(e) {
+        e.preventDefault();
+        var grid = $("#kGrid").data("kendoGrid");
+        var tr = $(e.currentTarget).closest("tr");
+        var selectedItem = this.dataItem(tr);
+        grid.select(tr);
+
+        if (selectedItem != null) {
+            var vendorId = selectedItem.vendorID;
+            $.ajax({
+
+                url: '/Sample/Sample/DeleteVendor' + "?vendorId=" + vendorId, // Adjust the URL according to your routing
+
+                method: 'post',
+                data: vendorId,
+
+                success: function (response) {
+                    console.log(response);
+                    var grid = $("#kGrid").data("kendoGrid");
+                    grid.dataSource.read();
+                    alert("Deleted Succesfully!")
+                },
+                error: function (xhr, status, error) {
+                    alert("Deleted Unsuccesfully!")
+                }
+            })
+        }
+    }
+    function FillVendorForm(obj) {
+        $("#hdnVendorId").val(obj.vendorID);
+        $("#txtVendorCd").val(obj.vendorCode);
+        $("#txtVendorNm").val(obj.vendorName);
+    }
+</script>
+<style>
+    .kTextArea:focus-visible {
+        outline: none;
+    }
+
+    .btn {
+        font-size: 1.1em;
+    }
+
+    .card-title {
+        font-size: 1.1em;
+    }
+</style>

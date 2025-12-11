@@ -1,0 +1,163 @@
+﻿@model SSL.Ticket.SSL.Ticket.Models.Tickets.TodayTaskSummaryVM
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+<style>
+    .kTextBox {
+        width: 100%;
+    }
+
+    .spacer4 {
+        height: 3px;
+    }
+
+    .kLbl {
+        margin-top: 5px;
+    }
+
+    .required {
+        border-bottom: 2px solid red;
+    }
+
+    .k-picker-wrap.k-state-default{
+        border-color: orange !important;
+    }
+
+    .k-group-start.k-group-end{
+        margin-left:18px;
+    }
+</style>
+<div class="container-fluid">
+    @using (Html.BeginForm("CreateEdit", "TodayTaskSummary", FormMethod.Post, new { @Id = "frm_TodayTaskSummary" }))
+    {
+
+        <p class="" style="">
+
+            @if (Model.Operation == "update")
+            {
+                <button type="button" name="btnName" value="Update" title="Update Data" class="btn btn-warning block btnsave"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Update</button>
+                @* <button type="button" title="" class="btn btn-secondary" id="singlePost">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;
+                    Post
+                </button> *@
+
+
+            }
+
+            else if (Model.Operation == "add")
+            {
+                <button class="btn btn-success button btnsave sslSave" type="button" id=""><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Save</button>
+
+            }
+
+            <button type="button" style="font-size: 18px;" title="Go To Index" data-url="/TodayTaskSummary/Index" onclick="GoTo(this)" id="" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancel</button>
+
+        </p>
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Details)
+        @Html.HiddenFor(model => model.IsPost)
+        @Html.HiddenFor(model => model.Operation)
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="validation-summary" style="">
+                </div>
+                <div class="card card-primary">
+                    <div class="card-header" id="responseTab">
+                        <h3 class="card-title">Create Today Task Info</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_todaytasksummarry" class="p-4 border rounded shadow-sm bg-white">
+                            <!-- Date -->
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Date</label>
+
+                                <div class="input-group">
+                                    @Html.TextBoxFor(model => model.Date, new { @id = "txtDate", @placeholder = "day.month.year hours:minutes", @class = "kDate",@readonly="readonly" })
+                                </div>
+
+                                <small class="text-danger">
+                                    @Html.ValidationMessageFor(model => model.Date)
+                                </small>
+                            </div>
+                            <!-- Details -->
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Details</label>
+
+                                @Html.TextAreaFor(model => model.Details, new
+                                    {
+                                        placeholder = "Enter your task details...",
+                                        @class = "form-control",
+                                        rows = "6",
+                                        id = "idDetails"
+                                    })
+
+                                <small class="text-danger">
+                                    @Html.ValidationMessageFor(model => model.Details)
+                                </small>
+                            </div>
+
+
+
+                        </form>
+                    </div>
+
+                    @* <form id="frm_todaytasksummarry" class="">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+
+
+                                            <div class="col-md-4">
+                                                @Html.LabelFor(model => model.Date, new { @class = "" })
+                                                @Html.TextBoxFor(model => model.Date, new { @id = "txtDate", @placeholder = "day.month.year hours:minutes", @class = "kDate" })
+                                                @Html.ValidationMessageFor(model => model.Date)
+                                            </div>
+                                            <div class="col-md-8">
+                                                @Html.LabelFor(model => model.Details, new { @class = "" })
+                                                @Html.TextAreaFor(model => model.Details, new
+                                                    {
+                                                        placeholder = "Enter Notes",
+                                                        @class = "form-control form-control-sm",
+                                                        rows = "4",
+                                                        @id = "idDetails"
+                                                    })
+                                                @Html.ValidationMessageFor(model => model.Details)
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form> *@
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+
+@section scripts {
+    <script src="~/javascript/todaytasksummary/todaytasksummary.js"></script>
+    <script src="~/js/app/services/commonservice.js"></script>
+    <script src="~/js/app/services/todaytasksummary/todaytasksummaryservice.js"></script>
+    <script src="~/js/app/controllers/support/todaytasksummarycontroller.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            TodayTaskSummaryController.init();
+
+        });
+
+    </script>
+
+
+}

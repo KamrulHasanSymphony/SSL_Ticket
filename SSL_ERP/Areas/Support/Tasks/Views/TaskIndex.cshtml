@@ -1,0 +1,50 @@
+﻿@model SSL.Ticket.SSL.Ticket.Models.Tasks.T_TasksVM
+
+@{
+    //ViewBag.Title = "Task Info";
+    Layout = "_Layout";
+   
+    @Html.HiddenFor(model => model.T_TicketId)
+    @Html.HiddenFor(model => model.AssigneeUserId)
+    @Html.HiddenFor(model => model.TicketCode)
+}
+@* <script src="~/javascript/task/tasksettings.js"></script>
+ *@<script src="~/javascript/task/tickettasksettings.js"></script>
+<!--Buttons-->
+@Html.HiddenFor(model => model.Id)
+
+<div class="container-fluid">   
+    <div style="display: none" id="formAppend"></div>
+    @if (Model.T_TicketId>0)
+    {
+        <button type="button" title="Add New Task" data-url="/Task/Create?ticketId= @Model.T_TicketId" onclick="GoTo(this)" id="" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;New</button>
+        
+    }
+  
+    <button type="button" id="btnIndex" title="Go To Index" data-url="/Task/Index" onclick="GoTo(this)" id="" class="btn btn-primary" style="display: none"><i class="fa fa-th" aria-hidden="true"></i>&nbsp;Index</button>
+</div>
+
+<div class="sapcer4"></div>
+
+<!-- Ticket Grid -->
+<div class="container-fluid" id="divGrid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <span style="font-size: initial;">
+                        <strong style="color: antiquewhite;">
+                            @(!string.IsNullOrEmpty(Model.TicketCode) ? $"{Model.TicketCode}" : "Task Informations")
+                        </strong>
+                    </span>
+                </div>
+                <div id="kTaskGrid">
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+<section>
+    <div id="partialContainer"> </div>
+</section>
+

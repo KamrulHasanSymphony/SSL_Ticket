@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+<script src="~/javascript/product/product.js"></script>
+
+<div class="container-fluid">
+
+    <button type="button" title="Add New" data-url="/Product/Create" onclick="GoTo(this)" id="" class="btn btn-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;New</button>
+
+</div>
+<div class="sapcer4"></div>
+
+<div class="container-fluid" id="divClient">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Product Informations</h3>
+        </div>
+        <div id="productGrid">
+        </div>
+    </div>
+</div>
+
+

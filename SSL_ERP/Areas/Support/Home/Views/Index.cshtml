@@ -1,0 +1,284 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<!-- Buttons -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Task Activity Scheduler</h3>
+                </div>
+                <div id="example">
+                    <div id="scheduler"></div>
+                </div>
+                <!-- Custom Footer Buttons -->
+                <div id="scheduler-footer" class="scheduler-footer-buttons" style="margin-bottom:8px;text-align:left;">
+                    <button type="button" title="See All Data" id="btnAll" class="btn btn-status" style="background-color: #05827e ;width:91px;"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; All</button>
+                    <button type="button" title="See Self Data" id="btnSelf" class="btn btn-status " style="background-color: #0B6E4F;width:91px;"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Self</button>
+
+                </div>
+            </div>
+            <div class="card card-primary" style="height:6%;">
+                <div style="height:6px;"></div>
+                <div class="col-md-12" style="margin-top:7px;">
+                    <button type="button" class="btn btn-status" style="background-color: #07b7e3; width:91px;">Completed</button>
+                    <button type="button" class="btn btn-status" style="background-color: #db4649;width:91px;">Not Started</button>
+                    <button type="button" class="btn btn-status" style="background-color: #17e357;width:91px;">Started</button>
+                    <button type="button" class="btn btn-status" style="background-color: #f5e90f;width:91px;">Paused</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script id="event-template" type="text/x-kendo-template">
+    <div class="k-event-template">
+        #= title #
+    </div>
+</script>
+
+<script id="custom-editor-template" type="text/x-kendo-template">
+
+    <div class="k-edit-label">
+        <label for="title">Title</label>
+    </div>
+    <div data-container-for="title" class="k-edit-field">
+        <input type="text" class="k-input k-textbox" name="title" data-bind="value:title" disabled>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="code">Task Code</label>
+    </div>
+    <div data-container-for="code" class="k-edit-field">
+        <input type="text" class="k-input k-textbox" name="code" data-bind="value:code" disabled>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="ticketCode">Ticket Code</label>
+    </div>
+    <div data-container-for="ticketCode" class="k-edit-field">
+        <input type="text" class="k-input k-textbox" name="ticketCode" data-bind="value:ticketCode" disabled>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="topicName">Topic</label>
+    </div>
+    <div data-container-for="topicName" class="k-edit-field">
+        <input type="text" class="k-input k-textbox" name="topicName" data-bind="value:topicName" disabled>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="sourceName">Source</label>
+    </div>
+    <div data-container-for="sourceName" class="k-edit-field">
+        <input type="text" class="k-input k-textbox" name="sourceName" data-bind="value:sourceName" disabled>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="prioritiesName">Priorities</label>
+    </div>
+    <div data-container-for="prioritiesName" class="k-edit-field">
+        <input type="text" class="k-input k-textbox" name="prioritiesName" data-bind="value:prioritiesName" disabled>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="statusName">Status</label>
+    </div>
+    <div data-container-for="statusName" class="k-edit-field">
+        <input type="text" class="k-input k-textbox" name="statusName" data-bind="value:statusName" disabled>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="start">Start</label>
+    </div>
+    <div data-container-for="start" class="k-edit-field">
+        <input type="text" name="start" data-bind="value:start" data-role="datetimepicker" disabled>
+    </div>
+
+    <div class="k-edit-label">
+        <label for="end">End</label>
+    </div>
+    <div data-container-for="end" class="k-edit-field">
+        <input type="text" name="end" data-bind="value:end" data-role="datetimepicker" disabled>
+    </div>
+    <div class="k-edit-label">
+        <label for="description">Description</label>
+    </div>
+    <div data-container-for="description" class="k-edit-field">
+        <textarea class="k-textbox" name="description" data-bind="value:description" disabled style="height: 37px; width:100%;"></textarea>
+    </div>
+    <!-- Button container -->
+    <div class="k-edit-buttons k-state-default">
+        <button type="button" class="btn btn-warning block btnDetails"><i class="fas fa-th-list"></i>&nbsp;Details</button>
+        <button type="button" class="btn btn-danger btnCancle"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancle</button>
+    </div>
+</script>
+
+<script>
+    $("#scheduler").kendoScheduler({
+        date: new Date(),
+        //startTime: new Date(),
+        height: 626,
+        views: [
+            "day",
+            { type: "month", selected: true },
+            "week",
+            "month",
+            "agenda",
+            { type: "timeline", eventHeight: 50 }
+        ],
+        timezone: "Etc/UTC",
+
+        dataSource: {
+            batch: true,
+            transport: {
+                read: {
+                    url: "/Task/GetSchedulerData",
+                    dataType: "json"
+                }
+            },
+            schema: {
+                model: {
+                    id: "id",
+                    fields: {
+                        id: { type: "number" },
+                        t_TicketId: { type: "number" },
+                        code: { type: "string", from: "code" },
+                        ticketCode: { type: "string", from: "ticketCode" },
+                        title: { type: "string", from: "title" },
+                        topicName: { type: "string", from: "topicName" },
+                        sourceName: { type: "string", from: "sourceName" },
+                        prioritiesName: { type: "string", from: "prioritiesName" },
+                        statusName: { type: "string", from: "statusName" },
+                        start: { field: "start", type: "date", parse: function (value) { return parseDate(value, "yyyy-MM-dd HH:mm:ss"); } },
+                        end: { field: "end", type: "date", parse: function (value) { return parseDate(value, "yyyy-MM-dd HH:mm:ss"); } },
+                        description: { type: "string" },
+                        workingStatus: { field: "workingStatus" }
+                    }
+                }
+            }
+        },
+        resources: [
+            {
+                field: "workingStatus",
+                dataSource: [
+                    { text: "Start", value: "S", color: "#17e357" },
+                    { text: "Pause", value: "P", color: "#f5e90f" },
+                    { text: "Complete", value: "C", color: "#07b7e3" },
+                    { text: "NotStart", value: "NS", color: "#db4649" }
+                ]
+            }
+        ],
+
+        editable: {
+            template: $("#custom-editor-template").html(),
+            confirmation: false // Disable confirmation prompts
+        },
+        edit: function (e) {
+            e.container.find(".k-scheduler-update").hide();
+            e.container.find(".k-scheduler-delete").hide();
+            e.container.find(".k-scheduler-cancel").hide();
+            e.container.find(".btnCancle").click(function () {
+                $(e.container).data("kendoWindow").close();
+            });
+
+            e.container.find(".btnDetails").click(function () {
+                var id = e.event.id;
+                var ticketId = e.event.t_TicketId;
+                var url = "/Task/Edit/" + id;
+                window.location.href = url;
+            });
+        }
+    });
+
+    function parseDate(dateString) {
+        
+        // Create a new Date object from the string
+        const [datePart, timePart] = dateString.split(" "); // Split date and time
+        const [month, day, year] = datePart.split("/").map(Number); // Split and convert to numbers
+        const [hour, minute, second] = timePart.split(":").map(Number); // Split time
+
+        // Adjust hour for AM/PM
+        const isPM = timePart.includes("PM") && hour < 12;
+        const isAM = timePart.includes("AM") && hour === 12;
+        const adjustedHour = isPM ? hour + 12 : (isAM ? 0 : hour);
+
+        // Create and return a new Date object
+        return new Date(year, month - 1, day, adjustedHour, minute, second || 0);
+    }
+
+    $("#btnAll").click(function () {
+        // Clear existing scheduler data
+        $("#scheduler").data("kendoScheduler").dataSource.data([]);
+
+        // Fetch new data from the specified URL
+        $.ajax({
+            url: "/Task/GetAllSchedulerData",
+            dataType: "json",
+            success: function (data) {               
+
+                // Parse the start and end dates
+                data.forEach(function (item) {
+                    item.start = parseDate(item.start); // Convert to Date object
+                    item.end = parseDate(item.end);     // Convert to Date object
+                });
+
+                var scheduler = $("#scheduler").data("kendoScheduler");
+                scheduler.dataSource.data(data);
+                scheduler.refresh(); // Refresh the scheduler to display new data
+                console.log("Updated data source:", scheduler.dataSource.view());
+            },
+            error: function (e) {
+                console.error("Error fetching data:", e);
+                alert("Failed to load data. Please try again.");
+            }
+        });
+    });
+
+    $("#btnSelf").click(function () {
+        // Clear existing scheduler data
+        $("#scheduler").data("kendoScheduler").dataSource.data([]);
+
+        // Fetch new data from the specified URL
+        $.ajax({
+            url: "/Task/GetSchedulerData",
+            dataType: "json",
+            success: function (data) {
+
+                // Parse the start and end dates
+                data.forEach(function (item) {
+                    item.start = parseDate(item.start); // Convert to Date object
+                    item.end = parseDate(item.end);     // Convert to Date object
+                });
+
+                var scheduler = $("#scheduler").data("kendoScheduler");
+                scheduler.dataSource.data(data);
+                scheduler.refresh(); // Refresh the scheduler to display new data
+                console.log("Updated data source:", scheduler.dataSource.view());
+            },
+            error: function (e) {
+                console.error("Error fetching data:", e);
+                alert("Failed to load data. Please try again.");
+            }
+        });
+    });
+
+</script>
+<style>
+    .scheduler-footer-buttons {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .btn-status {
+        margin: 0 5px;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+</style>
