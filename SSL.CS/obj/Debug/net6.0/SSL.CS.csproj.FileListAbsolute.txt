@@ -10,3 +10,16 @@ D:\SSLTicketGit\SSL_TicketSystem\SSL.CS\obj\Debug\net6.0\SSL.CS.dll
 D:\SSLTicketGit\SSL_TicketSystem\SSL.CS\obj\Debug\net6.0\refint\SSL.CS.dll
 D:\SSLTicketGit\SSL_TicketSystem\SSL.CS\obj\Debug\net6.0\SSL.CS.pdb
 D:\SSLTicketGit\SSL_TicketSystem\SSL.CS\obj\Debug\net6.0\ref\SSL.CS.dll
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\bin\Debug\net6.0\SSL.CS.deps.json
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\bin\Debug\net6.0\SSL.CS.dll
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\bin\Debug\net6.0\SSL.CS.pdb
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\obj\Debug\net6.0\SSL.CS.csproj.AssemblyReference.cache
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\obj\Debug\net6.0\SSL.CS.GeneratedMSBuildEditorConfig.editorconfig
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\obj\Debug\net6.0\SSL.CS.AssemblyInfoInputs.cache
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\obj\Debug\net6.0\SSL.CS.AssemblyInfo.cs
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\obj\Debug\net6.0\SSL.CS.csproj.CoreCompileInputs.cache
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\obj\Debug\net6.0\SSL.CS.sourcelink.json
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\obj\Debug\net6.0\SSL.CS.dll
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\obj\Debug\net6.0\refint\SSL.CS.dll
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\obj\Debug\net6.0\SSL.CS.pdb
+D:\SSLTicketGit\SSL_Ticket\SSL.CS\obj\Debug\net6.0\ref\SSL.CS.dll

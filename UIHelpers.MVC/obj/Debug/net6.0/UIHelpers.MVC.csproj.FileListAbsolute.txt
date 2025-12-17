@@ -10,3 +10,16 @@ D:\SSLTicketGit\SSL_TicketSystem\UIHelpers.MVC\obj\Debug\net6.0\UIHelpers.MVC.dl
 D:\SSLTicketGit\SSL_TicketSystem\UIHelpers.MVC\obj\Debug\net6.0\refint\UIHelpers.MVC.dll
 D:\SSLTicketGit\SSL_TicketSystem\UIHelpers.MVC\obj\Debug\net6.0\UIHelpers.MVC.pdb
 D:\SSLTicketGit\SSL_TicketSystem\UIHelpers.MVC\obj\Debug\net6.0\ref\UIHelpers.MVC.dll
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\bin\Debug\net6.0\UIHelpers.MVC.deps.json
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\bin\Debug\net6.0\UIHelpers.MVC.dll
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\bin\Debug\net6.0\UIHelpers.MVC.pdb
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\obj\Debug\net6.0\UIHelpers.MVC.csproj.AssemblyReference.cache
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\obj\Debug\net6.0\UIHelpers.MVC.GeneratedMSBuildEditorConfig.editorconfig
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\obj\Debug\net6.0\UIHelpers.MVC.AssemblyInfoInputs.cache
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\obj\Debug\net6.0\UIHelpers.MVC.AssemblyInfo.cs
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\obj\Debug\net6.0\UIHelpers.MVC.csproj.CoreCompileInputs.cache
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\obj\Debug\net6.0\UIHelpers.MVC.sourcelink.json
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\obj\Debug\net6.0\UIHelpers.MVC.dll
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\obj\Debug\net6.0\refint\UIHelpers.MVC.dll
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\obj\Debug\net6.0\UIHelpers.MVC.pdb
+D:\SSLTicketGit\SSL_Ticket\UIHelpers.MVC\obj\Debug\net6.0\ref\UIHelpers.MVC.dll

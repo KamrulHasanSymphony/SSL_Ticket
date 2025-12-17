@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SSL_ERP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+517e294568ead9563d7ab61ef7df6862ad0397f8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f17dbac52bedf3704f3b243452deaa5d9228a676")]
 [assembly: System.Reflection.AssemblyProductAttribute("SSL_ERP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SSL_ERP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

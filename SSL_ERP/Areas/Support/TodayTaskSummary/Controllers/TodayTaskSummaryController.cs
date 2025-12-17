@@ -22,10 +22,11 @@ namespace SSL_ERP.Areas.Support.TodayTaskSummary.Controllers
             _todayTaskSummaryServices = todayTaskSummaryServices;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? Self)
         {
             TodayTaskSummaryVM vm = new TodayTaskSummaryVM();
             string userName = User.Identity.Name;
+            vm.Type = Self;
 
             if (userName == "0" || userName == null)
             {
@@ -33,7 +34,7 @@ namespace SSL_ERP.Areas.Support.TodayTaskSummary.Controllers
             }
             else
             {
-                return View("~/Areas/Support/TodayTaskSummary/Views/Index.cshtml");
+                return View("~/Areas/Support/TodayTaskSummary/Views/Index.cshtml",vm);
             }
         }
 
@@ -135,9 +136,15 @@ namespace SSL_ERP.Areas.Support.TodayTaskSummary.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetGridData(GridOptions options)
+        public JsonResult GetGridData(GridOptions options,string? type)
         {
-            string assigneeUserId = User.Identity.Name;
+            string assigneeUserId = null;
+
+            if (type != "a")
+            {
+                assigneeUserId = User.Identity.Name;
+            }
+            
             var res = _todayTaskSummaryServices.GetGridData(options, assigneeUserId);
             var erst = Json(res);
             return erst;

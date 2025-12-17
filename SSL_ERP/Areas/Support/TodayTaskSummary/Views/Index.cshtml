@@ -1,6 +1,8 @@
-﻿@{
+﻿@model SSL.Ticket.SSL.Ticket.Models.Tickets.TodayTaskSummaryVM
+@{
     ViewData["Title"] = "Index";
     Layout = "_Layout";
+    @Html.HiddenFor(model => model.Type)
 }
 <script src="~/javascript/todaytasksummary/todaytasksummary.js"></script>
 

@@ -23,6 +23,7 @@ namespace SSL.Ticket.SSL.Ticket.Models.Tickets
         public string? LastUpdatedFrom { get; set; }
         public string? Operation { get; set; }
         public string? ErrorMsg { get; set; }
+        public string? Type { get; set; }
 
         public List<string> IDs { get; set; }
 

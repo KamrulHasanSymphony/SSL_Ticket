@@ -1,32 +1,31 @@
 ﻿$(document).ready(function () {
+    var type = $("#Type").val();
+    debugger;
     var gridDataSource = new kendo.data.DataSource({
         type: "json",
         serverPaging: true,
         serverSorting: true,
         serverFiltering: true,
-        allowUnsort: true,
-        autoSync: true,
         pageSize: 10,
         transport: {
             read: {
                 url: "/TodayTaskSummary/GetGridData",
                 type: "POST",
                 dataType: "json",
-                cache: false
-            },
-            parameterMap: function (options) {
-                return options;
+                cache: false,
+                data: function () {
+                    return {
+                        type: $("#Type").val()
+                    };
+                }
             }
         },
-        batch: true,
         schema: {
             data: "items",
-            total: "totalCount",
-            model: {
-
-            }
+            total: "totalCount"
         }
     });
+
 
     $("#taskSummaryGrid").kendoGrid({
         dataSource: gridDataSource,

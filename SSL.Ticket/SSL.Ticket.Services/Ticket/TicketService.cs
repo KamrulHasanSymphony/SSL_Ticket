@@ -46,7 +46,7 @@ namespace SSL.Ticket.SSL.Ticket.Services.Ticket
                 using (var dbContext = _unitOfWork.Create())
                 {
                     var support = new GridEntity<T_TicketVm>();
-                    support = KendoGrid<T_TicketVm>.GetGridData_5(options, "sp_Select_TicketMain_Grid", "get_ticket_summary", "t.TicketId", AssigneeUserId, "", "", "");
+                    support = KendoGrid<T_TicketVm>.GetGridData_5(options, "sp_Select_TicketMain_Grid", "get_ticket_summary", "t.TicketCode", AssigneeUserId, "", "", "");
                     return support;
                 }
                     

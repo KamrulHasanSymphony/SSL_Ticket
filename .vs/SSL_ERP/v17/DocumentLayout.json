@@ -3,8 +3,44 @@
   "WorkspaceRootPath": "D:\\SSLTicketGit\\SSL_Ticket\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|d:\\sslticketgit\\ssl_ticket\\ssl_erp\\areas\\support\\todaytasksummary\\views\\createedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|solutionrelative:ssl_erp\\areas\\support\\todaytasksummary\\views\\createedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|d:\\sslticketgit\\ssl_ticket\\ssl_erp\\areas\\support\\todaytasksummary\\controllers\\todaytasksummarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|solutionrelative:ssl_erp\\areas\\support\\todaytasksummary\\controllers\\todaytasksummarycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|d:\\sslticketgit\\ssl_ticket\\ssl_erp\\areas\\support\\todaytasksummary\\views\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|solutionrelative:ssl_erp\\areas\\support\\todaytasksummary\\views\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|d:\\sslticketgit\\ssl_ticket\\ssl_erp\\wwwroot\\javascript\\todaytasksummary\\todaytasksummary.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|solutionrelative:ssl_erp\\wwwroot\\javascript\\todaytasksummary\\todaytasksummary.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|d:\\sslticketgit\\ssl_ticket\\ssl_erp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|solutionrelative:ssl_erp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|d:\\sslticketgit\\ssl_ticket\\ssl_erp\\areas\\support\\tickets\\controllers\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|solutionrelative:ssl_erp\\areas\\support\\tickets\\controllers\\ticketcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|d:\\sslticketgit\\ssl_ticket\\ssl_erp\\views\\home\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|solutionrelative:ssl_erp\\views\\home\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|d:\\sslticketgit\\ssl_ticket\\ssl_erp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|solutionrelative:ssl_erp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F6A56A1-5361-46BE-BB4F-6E880CDAC890}|SSL.Ticket\\SSL.Ticket.csproj|d:\\sslticketgit\\ssl_ticket\\ssl.ticket\\ssl.ticket.services\\ticket\\ticketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F6A56A1-5361-46BE-BB4F-6E880CDAC890}|SSL.Ticket\\SSL.Ticket.csproj|solutionrelative:ssl.ticket\\ssl.ticket.services\\ticket\\ticketservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|d:\\sslticketgit\\ssl_ticket\\ssl_erp\\wwwroot\\javascript\\ticket\\ticketsettings.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B2636E21-047F-4431-9A07-B5A121E8A86B}|SSL_ERP\\SSL_ERP.csproj|solutionrelative:ssl_erp\\wwwroot\\javascript\\ticket\\ticketsettings.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F6A56A1-5361-46BE-BB4F-6E880CDAC890}|SSL.Ticket\\SSL.Ticket.csproj|d:\\sslticketgit\\ssl_ticket\\ssl.ticket\\ssl.ticket.repository.sqlserver\\ticket\\ticketrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F6A56A1-5361-46BE-BB4F-6E880CDAC890}|SSL.Ticket\\SSL.Ticket.csproj|solutionrelative:ssl.ticket\\ssl.ticket.repository.sqlserver\\ticket\\ticketrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,20 +50,136 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CreateEdit.cshtml",
-              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\CreateEdit.cshtml",
-              "RelativeDocumentMoniker": "SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\CreateEdit.cshtml",
-              "ToolTip": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\CreateEdit.cshtml",
-              "RelativeToolTip": "SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\CreateEdit.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-11T06:03:54.686Z",
+              "DocumentIndex": 2,
+              "Title": "TodayTaskSummary.js",
+              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\wwwroot\\JavaScript\\TodayTaskSummary\\TodayTaskSummary.js",
+              "RelativeDocumentMoniker": "SSL_ERP\\wwwroot\\JavaScript\\TodayTaskSummary\\TodayTaskSummary.js",
+              "ToolTip": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\wwwroot\\JavaScript\\TodayTaskSummary\\TodayTaskSummary.js",
+              "RelativeToolTip": "SSL_ERP\\wwwroot\\JavaScript\\TodayTaskSummary\\TodayTaskSummary.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-17T04:39:58.016Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\Index.cshtml",
+              "RelativeDocumentMoniker": "SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\Index.cshtml",
+              "ToolTip": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\Index.cshtml",
+              "RelativeToolTip": "SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Views\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T04:32:15.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TodayTaskSummaryController.cs",
+              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Controllers\\TodayTaskSummaryController.cs",
+              "RelativeDocumentMoniker": "SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Controllers\\TodayTaskSummaryController.cs",
+              "ToolTip": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Controllers\\TodayTaskSummaryController.cs",
+              "RelativeToolTip": "SSL_ERP\\Areas\\Support\\TodayTaskSummary\\Controllers\\TodayTaskSummaryController.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAAwIsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T04:14:18.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "SSL_ERP\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "SSL_ERP\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAK4BAAAAAAAAAAAAwL8BAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T04:15:53.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Views\\Home\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "SSL_ERP\\Views\\Home\\Dashboard.cshtml",
+              "ToolTip": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Views\\Home\\Dashboard.cshtml",
+              "RelativeToolTip": "SSL_ERP\\Views\\Home\\Dashboard.cshtml",
+              "ViewState": "AgIAAJsBAAAAAAAAAAAAABkAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T04:15:31.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "SSL_ERP\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "SSL_ERP\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T04:15:21.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TicketService.cs",
+              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_Ticket\\SSL.Ticket\\SSL.Ticket.Services\\Ticket\\TicketService.cs",
+              "RelativeDocumentMoniker": "SSL.Ticket\\SSL.Ticket.Services\\Ticket\\TicketService.cs",
+              "ToolTip": "D:\\SSLTicketGit\\SSL_Ticket\\SSL.Ticket\\SSL.Ticket.Services\\Ticket\\TicketService.cs",
+              "RelativeToolTip": "SSL.Ticket\\SSL.Ticket.Services\\Ticket\\TicketService.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAArwCcAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T08:01:20.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TicketController.cs",
+              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Areas\\Support\\Tickets\\Controllers\\TicketController.cs",
+              "RelativeDocumentMoniker": "SSL_ERP\\Areas\\Support\\Tickets\\Controllers\\TicketController.cs",
+              "ToolTip": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\Areas\\Support\\Tickets\\Controllers\\TicketController.cs",
+              "RelativeToolTip": "SSL_ERP\\Areas\\Support\\Tickets\\Controllers\\TicketController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAzwLYAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T08:01:04.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TicketRepository.cs",
+              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_Ticket\\SSL.Ticket\\SSL.Ticket.Repository.SqlServer\\Ticket\\TicketRepository.cs",
+              "RelativeDocumentMoniker": "SSL.Ticket\\SSL.Ticket.Repository.SqlServer\\Ticket\\TicketRepository.cs",
+              "ToolTip": "D:\\SSLTicketGit\\SSL_Ticket\\SSL.Ticket\\SSL.Ticket.Repository.SqlServer\\Ticket\\TicketRepository.cs",
+              "RelativeToolTip": "SSL.Ticket\\SSL.Ticket.Repository.SqlServer\\Ticket\\TicketRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T08:00:42.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TicketSettings.js",
+              "DocumentMoniker": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\wwwroot\\JavaScript\\Ticket\\TicketSettings.js",
+              "RelativeDocumentMoniker": "SSL_ERP\\wwwroot\\JavaScript\\Ticket\\TicketSettings.js",
+              "ToolTip": "D:\\SSLTicketGit\\SSL_Ticket\\SSL_ERP\\wwwroot\\JavaScript\\Ticket\\TicketSettings.js",
+              "RelativeToolTip": "SSL_ERP\\wwwroot\\JavaScript\\Ticket\\TicketSettings.js",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-12-15T08:00:26.883Z"
             }
           ]
         }
